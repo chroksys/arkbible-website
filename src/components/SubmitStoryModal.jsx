@@ -62,7 +62,7 @@ export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="modal-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             <div className="form-group">
               <label>Location</label>
               <input
@@ -102,11 +102,22 @@ export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
             type="submit"
             disabled={isSubmitting}
             className="btn btn-primary"
-            style={{ width: '100%', marginTop: '1rem' }}
+            style={{
+              width: '100%',
+              marginTop: '1rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              flexWrap: 'wrap',
+              textAlign: 'center',
+              boxSizing: 'border-box'
+            }}
           >
-            {isSubmitting ? 'Submitting Testimony...' : (
+            {isSubmitting ? 'Submitting...' : (
               <>
-                <Send size={18} /> Submit Story for Community Encouragement
+                <Send size={18} />
+                <span>Submit Story for Community</span>
               </>
             )}
           </button>
