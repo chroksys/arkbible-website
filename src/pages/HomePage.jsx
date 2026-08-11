@@ -91,7 +91,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
           loop
           muted
           playsInline
-          src="/homebackground.mp4"
+          src="/images/glob.mp4"
         />
         <div className="hero-overlay" />
         <div className="container hero-content">
