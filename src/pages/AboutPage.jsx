@@ -373,18 +373,18 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
             </p>
           </div>
 
-          {/* 2 ROWS x 2 COLUMNS WIDE CARDS GRID */}
+          {/* 2 ROWS x 2 COLUMNS WIDE CARDS GRID (MOBILE OPTIMIZED 280px MIN) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.8rem'
           }}>
             {roadmapItems.map((item, idx) => (
               <div
                 key={idx}
                 className="light-card"
                 style={{
-                  padding: '2.2rem 2.4rem',
+                  padding: '2rem 1.6rem',
                   borderRadius: '24px',
                   display: 'flex',
                   flexDirection: 'column',
