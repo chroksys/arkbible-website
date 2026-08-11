@@ -83,17 +83,16 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
   return (
     <div>
-      {/* SECTION 1: HERO BANNER (Centered Text, No Phone Mockup) */}
-      <section className="hero-video-wrapper">
-        <video
-          className="hero-video-bg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          src="/images/glob.mp4"
-        />
-        <div className="hero-overlay" />
+      {/* SECTION 1: HERO BANNER (BACKGROUND IMAGE: /images/good.webp) */}
+      <section style={{
+        position: 'relative',
+        padding: '7.5rem 0 6rem 0',
+        background: `linear-gradient(to bottom, rgba(14, 23, 22, 0.72), rgba(14, 23, 22, 0.92)), url('/images/good.webp')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        color: '#FFFFFF'
+      }}>
         <div className="container hero-content">
           <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
             <div className="hero-badge" style={{ marginBottom: '1.4rem' }}>
