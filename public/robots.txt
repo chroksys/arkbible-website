@@ -1,0 +1,5 @@
+# robots.txt for Arkbible Companion Website
+User-agent: *
+Allow: /
+
+Sitemap: https://arkbible.org/sitemap.xml
