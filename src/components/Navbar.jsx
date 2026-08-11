@@ -83,16 +83,17 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             </a>
           </li>
 
-          {/* PRODUCTS DROPDOWN LINK (HOVER ONLY - NOT CLICKABLE) */}
+          {/* PRODUCTS DROPDOWN LINK (HOVER & MOBILE CLICK) */}
           <li
             style={{ position: 'relative' }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <span
+              onClick={() => setProductsDropdownOpen(prev => !prev)}
               className={`nav-link ${isProductActive ? 'active' : ''}`}
               style={{
-                cursor: 'default',
+                cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.35rem',
@@ -113,6 +114,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             {/* PRODUCTS DROPDOWN MENU WITH dpp.png ON LEFT SIDE & TEXT ON RIGHT SIDE */}
             {productsDropdownOpen && (
               <div
+                className="nav-dropdown-menu"
                 style={{
                   position: 'absolute',
                   top: '100%',
@@ -130,6 +132,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               >
                 {/* Card Item: dpp.png Image on Left, Text & Button on Right */}
                 <div
+                  className="nav-dropdown-card"
                   onClick={() => handleNavClick('/product')}
                   style={{
                     background: 'var(--bg-teal-light)',
@@ -222,16 +225,17 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             )}
           </li>
 
-          {/* COMMUNITY DROPDOWN LINK (HOVER ONLY - NOT CLICKABLE) */}
+          {/* COMMUNITY DROPDOWN LINK (HOVER & MOBILE CLICK) */}
           <li
             style={{ position: 'relative' }}
             onMouseEnter={handleMouseEnterCommunity}
             onMouseLeave={handleMouseLeaveCommunity}
           >
             <span
+              onClick={() => setCommunityDropdownOpen(prev => !prev)}
               className={`nav-link ${isCommunityActive ? 'active' : ''}`}
               style={{
-                cursor: 'default',
+                cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.35rem',
@@ -252,6 +256,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             {/* COMMUNITY DROPDOWN MENU WITH PREVIEW IMAGE ON LEFT & SUBPAGES ON RIGHT */}
             {communityDropdownOpen && (
               <div
+                className="nav-dropdown-menu nav-dropdown-community"
                 style={{
                   position: 'absolute',
                   top: '100%',
@@ -271,7 +276,9 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                 }}
               >
                 {/* LEFT SIDE: Preview Image Card */}
-                <div style={{
+                <div
+                  className="nav-dropdown-preview-card"
+                  style={{
                   flexShrink: 0,
                   width: '185px',
                   borderRadius: '18px',
