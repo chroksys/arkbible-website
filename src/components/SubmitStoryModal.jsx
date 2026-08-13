@@ -33,18 +33,18 @@ export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={24} />
         </button>
 
-        <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-          <div className="gold-badge" style={{ marginBottom: '0.6rem' }}>
-            <Heart size={14} /> Faith Testimony
+        <div style={{ marginBottom: '1.5rem', textAlign: 'center', paddingTop: '0.5rem' }}>
+          <div className="gold-badge" style={{ marginBottom: '0.6rem', display: 'inline-flex' }}>
+            <Heart size={14} color="#3A6B68" /> Faith Testimony
           </div>
-          <h3 className="heading-md" style={{ color: '#ffffff' }}>
+          <h3 className="heading-md" style={{ color: 'var(--text-dark)', marginBottom: '0.3rem' }}>
             Share Your Story of Faith
           </h3>
-          <p style={{ color: 'var(--text-light-muted)', fontSize: '0.9rem', marginTop: '0.3rem' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
             Encourage believers worldwide by sharing how God is working in your life.
           </p>
         </div>
@@ -62,18 +62,18 @@ export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
             />
           </div>
 
-          <div className="modal-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-            <div className="form-group">
+          <div className="form-row-2col" style={{ marginBottom: '1.25rem' }}>
+            <div className="form-group" style={{ margin: 0 }}>
               <label>Location</label>
               <input
                 type="text"
-                placeholder="e.g. Lagos, Nigeria / Texas, USA"
+                placeholder="e.g. Lagos, Nigeria"
                 className="form-input"
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group" style={{ margin: 0 }}>
               <label>Supporting Scripture</label>
               <input
                 type="text"
@@ -105,19 +105,20 @@ export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
             style={{
               width: '100%',
               marginTop: '1rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              flexWrap: 'wrap',
+              padding: '0.85rem 1rem',
+              fontSize: '0.92rem',
+              whiteSpace: 'normal',
+              lineHeight: '1.35',
+              minHeight: '48px',
               textAlign: 'center',
+              justifyContent: 'center',
               boxSizing: 'border-box'
             }}
           >
             {isSubmitting ? 'Submitting...' : (
               <>
-                <Send size={18} />
-                <span>Submit Story for Community</span>
+                <Send size={18} style={{ flexShrink: 0 }} />
+                <span>Submit Faith Testimony</span>
               </>
             )}
           </button>
