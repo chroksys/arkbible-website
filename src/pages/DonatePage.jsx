@@ -101,7 +101,7 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '3rem',
             alignItems: 'stretch'
           }}>
@@ -149,76 +149,33 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
             </div>
 
             {/* RIGHT SIDE: Interactive Giving Form Container */}
-            <div className="light-card" style={{ padding: '2.5rem', borderRadius: '24px', boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}>
+            <div className="light-card interactive-giving-card">
               {/* Toggle Monthly / One-Time */}
-              <div style={{
-                display: 'flex',
-                background: 'var(--bg-parchment)',
-                borderRadius: '9999px',
-                padding: '0.3rem',
-                marginBottom: '1.8rem',
-                border: '1px solid var(--border-light)'
-              }}>
+              <div className="giving-toggle-bar">
                 <button
                   type="button"
                   onClick={() => setGiveType('monthly')}
-                  style={{
-                    flex: 1,
-                    padding: '0.6rem 1rem',
-                    borderRadius: '9999px',
-                    fontWeight: '700',
-                    fontSize: '0.88rem',
-                    background: giveType === 'monthly' ? '#3A6B68' : 'transparent',
-                    color: giveType === 'monthly' ? '#ffffff' : 'var(--text-muted)',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer'
-                  }}
+                  className={`giving-toggle-btn ${giveType === 'monthly' ? 'active' : ''}`}
                 >
                   Monthly Partnership
                 </button>
                 <button
                   type="button"
                   onClick={() => setGiveType('onetime')}
-                  style={{
-                    flex: 1,
-                    padding: '0.6rem 1rem',
-                    borderRadius: '9999px',
-                    fontWeight: '700',
-                    fontSize: '0.88rem',
-                    background: giveType === 'onetime' ? '#3A6B68' : 'transparent',
-                    color: giveType === 'onetime' ? '#ffffff' : 'var(--text-muted)',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer'
-                  }}
+                  className={`giving-toggle-btn ${giveType === 'onetime' ? 'active' : ''}`}
                 >
                   One-Time Gift
                 </button>
               </div>
 
               {/* Quick Select Amounts */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))',
-                gap: '0.8rem',
-                marginBottom: '1.4rem'
-              }}>
+              <div className="giving-amount-grid">
                 {(giveType === 'monthly' ? [15, 25, 50, 100] : [25, 50, 100, 250]).map(amt => (
                   <button
                     key={amt}
                     type="button"
                     onClick={() => { setSelectedAmount(amt); setCustomAmount(''); }}
-                    style={{
-                      padding: '0.85rem 0.4rem',
-                      borderRadius: '14px',
-                      fontSize: '1.1rem',
-                      fontWeight: '800',
-                      border: '2px solid',
-                      borderColor: (selectedAmount === amt && !customAmount) ? '#3A6B68' : 'var(--border-light)',
-                      background: (selectedAmount === amt && !customAmount) ? 'var(--primary-subtle)' : '#ffffff',
-                      color: (selectedAmount === amt && !customAmount) ? '#3A6B68' : 'var(--text-dark)',
-                      transition: 'all 0.2s ease',
-                      cursor: 'pointer'
-                    }}
+                    className={`giving-amount-btn ${(selectedAmount === amt && !customAmount) ? 'active' : ''}`}
                   >
                     ${amt}{giveType === 'monthly' ? '/mo' : ''}
                   </button>
@@ -231,7 +188,7 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
                   <DollarSign size={20} color="var(--text-muted)" style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
                   <input
                     type="number"
-                    placeholder={giveType === 'monthly' ? 'Custom Monthly Amount ($/mo)' : 'Custom Gift Amount ($)'}
+                    placeholder={giveType === 'monthly' ? 'Custom Monthly Amount ($)' : 'Custom Gift Amount ($)'}
                     className="form-input"
                     style={{ paddingLeft: '2.5rem' }}
                     value={customAmount}
@@ -305,25 +262,23 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
                     )}
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem', marginBottom: '1.2rem' }}>
+                  <div className="giving-action-grid">
                     <button
                       type="submit"
                       disabled={isProcessing}
-                      className="btn btn-primary"
-                      style={{ width: '100%', padding: '0.9rem', fontSize: '0.88rem' }}
+                      className="btn btn-primary giving-action-btn"
                     >
                       <CreditCard size={18} /> {giveType === 'monthly' ? `Partner $${currentAmount}/mo` : `Give $${currentAmount} (Stripe)`}
                     </button>
                     <button
                       type="submit"
                       disabled={isProcessing}
-                      className="btn btn-secondary"
-                      style={{ width: '100%', padding: '0.9rem', fontSize: '0.88rem' }}
+                      className="btn btn-secondary giving-action-btn"
                     >
                       <DollarSign size={18} /> {giveType === 'monthly' ? `PayPal $${currentAmount}/mo` : `Give $${currentAmount} (PayPal)`}
                     </button>
                   </div>
-                  <div style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                  <div className="giving-footnote">
                     <ShieldCheck size={14} color="var(--primary)" style={{ display: 'inline', marginRight: '0.3rem' }} />
                     {giveType === 'monthly' ? 'Cancel or modify your monthly partnership anytime. 100% tax-deductible.' : '256-bit SSL encrypted. 100% tax-deductible non-profit contribution.'}
                   </div>

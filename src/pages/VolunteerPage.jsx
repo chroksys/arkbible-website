@@ -267,7 +267,7 @@ export default function VolunteerPage({ navigateTo, onSubmitToast }) {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                  <div className="form-row-2col" style={{ marginBottom: '1rem' }}>
                     <div className="form-group" style={{ margin: 0 }}>
                       <label style={{ fontSize: '0.84rem', fontWeight: '700' }}>Email Address</label>
                       <div style={{ position: 'relative' }}>
@@ -301,7 +301,7 @@ export default function VolunteerPage({ navigateTo, onSubmitToast }) {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                  <div className="form-row-2col" style={{ marginBottom: '1rem' }}>
                     <div className="form-group" style={{ margin: 0 }}>
                       <label style={{ fontSize: '0.84rem', fontWeight: '700' }}>Preferred Role</label>
                       <select
