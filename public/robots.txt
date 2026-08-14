@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arkbible.org/sitemap.xml
+Sitemap: https://arkbible.app/sitemap.xml
