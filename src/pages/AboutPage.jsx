@@ -69,7 +69,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
 
   return (
     <div>
-      {/* SECTION 1: HERO BANNER (No White Overlay, High Contrast Hero Badge) */}
+      {/* SECTION 1: HERO BANNER */}
       <section style={{
         position: 'relative',
         padding: '7rem 0 5rem 0',
@@ -81,10 +81,10 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
           <div className="hero-badge" style={{ marginBottom: '1.2rem' }}>
-            Mission & Spiritual Foundation
+            {t('about.badge')}
           </div>
           <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            Gathering Believers in a <span className="text-gradient-green">Distracted World</span>.
+            {t('about.titleLine1')} <span className="text-gradient-green">{t('about.titleLine2')}</span>.
           </h1>
           <p style={{
             fontSize: '1.2rem',
@@ -92,7 +92,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
             lineHeight: '1.7',
             marginBottom: '2rem'
           }}>
-            Our mission, our faith foundation, and why we are building a sanctuary for God’s Word—free from commercial noise, algorithm traps, and digital clutter.
+            {t('about.subtitle')}
           </p>
         </div>
       </section>
@@ -108,16 +108,16 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
           }}>
             <div>
               <div className="teal-badge" style={{ marginBottom: '1rem' }}>
-                Our Founding Narrative
+                {t('about.narrativeBadge')}
               </div>
               <h2 className="heading-lg" style={{ marginBottom: '1.2rem' }}>
-                The Heart Behind Arkbible
+                {t('about.heartTitle')}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.06rem', lineHeight: '1.7', marginBottom: '1.2rem' }}>
-                In an era dominated by relentless digital notifications, commercial pop-ups, and algorithmic distractions, finding quiet time with God has become increasingly difficult. Modern apps often commodify scripture with ad banners, monthly paywalls, and data tracking.
+                {t('about.heartP1')}
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.06rem', lineHeight: '1.7', marginBottom: '1.8rem' }}>
-                Arkbible was born out of a simple, sacred conviction: <strong>God’s Word should remain a quiet sanctuary</strong>. We created Arkbible to provide an ad-free, offline-ready haven where individual believers and global communities can anchor their minds in Scripture without interruption.
+                {t('about.heartP2')}
               </p>
 
               <div style={{

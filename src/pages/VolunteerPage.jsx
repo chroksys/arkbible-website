@@ -75,7 +75,7 @@ export default function VolunteerPage({ navigateTo, onSubmitToast }) {
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
           <div className="hero-badge" style={{ marginBottom: '1.4rem', display: 'inline-flex' }}>
-            <Compass size={16} /> Global Field Missions & Service
+            <Compass size={16} /> {t('volunteer.badge')}
           </div>
           <h1 className="heading-xl" style={{
             color: '#FFFFFF',
@@ -85,8 +85,7 @@ export default function VolunteerPage({ navigateTo, onSubmitToast }) {
             lineHeight: '1.25',
             fontSize: '2.85rem'
           }}>
-            Serve as a <span className="text-gradient-green">Kingdom Missionary</span><br />
-            in Unreached & Remote Regions
+            {t('volunteer.title')}
           </h1>
           <p style={{
             fontSize: '1.18rem',
@@ -94,15 +93,15 @@ export default function VolunteerPage({ navigateTo, onSubmitToast }) {
             lineHeight: '1.75',
             marginBottom: '2.4rem'
           }}>
-            Join Arkbible's field teams to bring God's Word to unreached & offline communities—combining scripture distribution, local church partnerships, city cleanups, and practical skill empowerment.
+            {t('volunteer.subtitle')}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#apply-form" className="btn btn-primary" style={{ padding: '0.9rem 2rem' }}>
-              Apply to Volunteer <ArrowRight size={18} />
+              {t('buttons.becomeVolunteer')} <ArrowRight size={18} />
             </a>
             <a href="#roles" className="btn btn-secondary" style={{ padding: '0.9rem 2rem' }}>
-              View Field Roles
+              {t('buttons.learnMore')}
             </a>
           </div>
         </div>

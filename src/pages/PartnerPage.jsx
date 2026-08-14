@@ -65,10 +65,10 @@ export default function PartnerPage({ navigateTo, onSubmitToast }) {
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
           <div className="hero-badge" style={{ marginBottom: '1.2rem', display: 'inline-flex' }}>
-            <Church size={16} /> Church & Pastor Partnerships
+            <Church size={16} /> {t('partner.badge')}
           </div>
           <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            Unite Your Church with <span className="text-gradient-green">Arkbible</span>
+            {t('partner.title')}
           </h1>
           <p style={{
             fontSize: '1.18rem',
@@ -76,7 +76,7 @@ export default function PartnerPage({ navigateTo, onSubmitToast }) {
             lineHeight: '1.75',
             marginBottom: '2rem'
           }}>
-            How local churches, pastors, and Christian organizations can partner with Arkbible to distribute sermon notes, engage youth fellowships, and keep congregations connected throughout the week.
+            {t('partner.subtitle')}
           </p>
         </div>
       </section>

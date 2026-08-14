@@ -69,7 +69,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
   const filteredTestimonies = activeFilter === 'All'
     ? allTestimonies
-    : allTestimonies.filter(t => t.tag === activeFilter);
+    : allTestimonies.filter(tItem => tItem.tag === activeFilter);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -129,10 +129,10 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', fontSize: '0.94rem', color: 'rgba(255, 255, 255, 0.9)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <ShieldCheck size={18} color="#528986" /> 100% Ad-Free Sanctuary
+                <ShieldCheck size={18} color="#528986" /> {t('home.adFreeSanctuary')}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <Star size={18} color="#528986" /> Global Fellowship
+                <Star size={18} color="#528986" /> {t('home.globalFellowship')}
               </div>
             </div>
           </div>
@@ -144,13 +144,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 4rem auto' }}>
             <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
-              Core Foundations
+              {t('home.pillarsBadge')}
             </div>
             <h2 className="heading-lg">
-              Built Around Three Pillars of Christian Life
+              {t('home.pillarsTitle')}
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', marginTop: '0.6rem' }}>
-              We exist to nurture genuine spiritual fellowship, daily immersion in Scripture, and unwavering prayer for one another.
+              {t('home.pillarsSubtitle')}
             </p>
           </div>
 
@@ -217,16 +217,16 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                     letterSpacing: '0.04em',
                     textTransform: 'uppercase'
                   }}>
-                    Global Believers Circle
+                    {t('home.pillar1Tag')}
                   </div>
                 </div>
 
                 <div style={{ padding: '2rem' }}>
                   <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    Faithful Fellowship
+                    {t('home.pillar1Title')}
                   </h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    Connecting Christians across generations and locations to encourage one another daily in prayer, spiritual accountability, and mutual discipleship.
+                    {t('home.pillar1Desc')}
                   </p>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   borderTop: '1px solid var(--border-light)',
                   paddingTop: '1rem'
                 }}>
-                  <Check size={16} /> Intergenerational Unity & Support
+                  <Check size={16} /> {t('home.pillar1Check')}
                 </div>
               </div>
             </div>
@@ -304,16 +304,16 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                     letterSpacing: '0.04em',
                     textTransform: 'uppercase'
                   }}>
-                    100% Offline Scripture
+                    {t('home.pillar2Tag')}
                   </div>
                 </div>
 
                 <div style={{ padding: '2rem' }}>
                   <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    Daily Scripture Grounding
+                    {t('home.pillar2Title')}
                   </h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    Keeping God’s Word at the absolute center of personal life and communal conversations, pre-bundled 100% offline with zero ad distractions.
+                    {t('home.pillar2Desc')}
                   </p>
                 </div>
               </div>
@@ -328,7 +328,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   borderTop: '1px solid var(--border-light)',
                   paddingTop: '1rem'
                 }}>
-                  <Check size={16} /> Multi-Translation Offline Bibles
+                  <Check size={16} /> {t('home.pillar2Check')}
                 </div>
               </div>
             </div>
@@ -348,8 +348,8 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               <div>
                 <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
                   <img
-                    src="/images/pray.jpg"
-                    alt="Believers in Prayer Support"
+                    src="/images/praying hands.jpg"
+                    alt="Believers Hands Raised in Prayer"
                     style={{
                       width: '100%',
                       height: '100%',
@@ -391,16 +391,16 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                     letterSpacing: '0.04em',
                     textTransform: 'uppercase'
                   }}>
-                    Intercessory Sanctuary
+                    {t('home.pillar3Tag')}
                   </div>
                 </div>
 
                 <div style={{ padding: '2rem' }}>
                   <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    Mutual Prayer Support
+                    {t('home.pillar3Title')}
                   </h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    A safe, 4-layer moderated sanctuary to share confidential prayer requests and celebrate answered prayers together as one global body of Christ.
+                    {t('home.pillar3Desc')}
                   </p>
                 </div>
               </div>
@@ -415,16 +415,15 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   borderTop: '1px solid var(--border-light)',
                   paddingTop: '1rem'
                 }}>
-                  <Check size={16} /> Confidential & Moderated Prayer
+                  <Check size={16} /> {t('home.pillar3Check')}
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: REAL FAITH STORIES & COMMUNITY TESTIMONIES (BACKGROUND: bcg.jpg COVER CENTER CENTER) */}
+      {/* SECTION 3: REAL FAITH STORIES & COMMUNITY TESTIMONIES */}
       <section style={{
         position: 'relative',
         padding: '6rem 0',
@@ -435,7 +434,6 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
         overflow: 'hidden'
       }}>
         <div className="container">
-          {/* Header with Navigation Controls */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -446,13 +444,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
           }}>
             <div>
               <div className="hero-badge" style={{ marginBottom: '0.8rem' }}>
-                <MessageSquareQuote size={14} /> Community Voices
+                <MessageSquareQuote size={14} /> {t('home.storiesBadge')}
               </div>
               <h2 className="heading-lg" style={{ color: '#FFFFFF' }}>
-                Real Faith Stories & Testimonies
+                {t('home.storiesTitle')}
               </h2>
               <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.05rem', marginTop: '0.4rem', fontWeight: '500' }}>
-                Encouraging testimonies submitted by brothers and sisters across the globe.
+                {t('home.storiesSubtitle')}
               </p>
             </div>
 
@@ -462,10 +460,9 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 onClick={onOpenSubmitStory}
                 style={{ padding: '0.65rem 1.2rem' }}
               >
-                <PlusCircle size={17} /> Share Your Faith Story
+                <PlusCircle size={17} /> {t('buttons.shareStory')}
               </button>
 
-              {/* Slider Navigation Buttons */}
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 <button
                   onClick={scrollLeft}
@@ -474,23 +471,14 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                     width: '42px',
                     height: '42px',
                     borderRadius: '50%',
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                    border: '1.5px solid rgba(255, 255, 255, 0.3)',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(10px)',
                     color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    cursor: 'pointer',
-                    backdropFilter: 'blur(8px)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#3A6B68';
-                    e.currentTarget.style.borderColor = '#3A6B68';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                    cursor: 'pointer'
                   }}
                 >
                   <ChevronLeft size={20} />
@@ -502,23 +490,14 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                     width: '42px',
                     height: '42px',
                     borderRadius: '50%',
-                    background: '#3A6B68',
-                    border: '1.5px solid #3A6B68',
+                    border: '1.5px solid rgba(255, 255, 255, 0.3)',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(10px)',
                     color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: 'var(--shadow-sm)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#244846';
-                    e.currentTarget.style.borderColor = '#244846';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#3A6B68';
-                    e.currentTarget.style.borderColor = '#3A6B68';
+                    cursor: 'pointer'
                   }}
                 >
                   <ChevronRight size={20} />
@@ -527,178 +506,95 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
             </div>
           </div>
 
-          {/* Filter Pills */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '2.2rem' }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
+          <div
+            ref={sliderRef}
+            style={{
+              display: 'flex',
+              gap: '1.5rem',
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              paddingBottom: '1rem',
+              scrollbarWidth: 'none'
+            }}
+          >
+            {filteredTestimonies.map((item) => (
+              <div
+                key={item.id}
                 style={{
-                  padding: '0.5rem 1.2rem',
-                  borderRadius: '9999px',
-                  fontSize: '0.86rem',
-                  fontWeight: '600',
-                  border: '1px solid',
-                  borderColor: activeFilter === cat ? '#3A6B68' : 'rgba(255, 255, 255, 0.3)',
-                  background: activeFilter === cat ? '#3A6B68' : 'rgba(255, 255, 255, 0.15)',
-                  color: '#FFFFFF',
-                  backdropFilter: 'blur(8px)',
-                  transition: 'all 0.2s ease'
+                  flexShrink: 0,
+                  width: '320px',
+                  scrollSnapAlign: 'start',
+                  background: 'rgba(255, 255, 255, 0.96)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '20px',
+                  padding: '1.6rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.6)',
+                  boxShadow: '0 15px 35px rgba(0, 0, 0, 0.15)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
                 }}
               >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* WRAPPER WITH ULTRA SMOOTH MASK-IMAGE FADE EDGES */}
-          <div style={{ position: 'relative' }}>
-            {/* HORIZONTAL SLIDING TESTIMONY CAROUSEL WITH MASK FADE */}
-            <div
-              ref={sliderRef}
-              style={{
-                display: 'flex',
-                gap: '1.5rem',
-                overflowX: 'auto',
-                scrollSnapType: 'x mandatory',
-                scrollBehavior: 'smooth',
-                padding: '0.5rem 1rem 1.5rem 1rem',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 50px, black calc(100% - 50px), transparent 100%)',
-                maskImage: 'linear-gradient(to right, transparent 0%, black 50px, black calc(100% - 50px), transparent 100%)'
-              }}
-            >
-              {filteredTestimonies.map((item) => (
-                <div
-                  key={item.id}
-                  className="light-card"
-                  style={{
-                    minWidth: '290px',
-                    maxWidth: '310px',
-                    flexShrink: 0,
-                    scrollSnapAlign: 'start',
-                    padding: '1.6rem 1.8rem',
-                    borderRadius: '18px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    border: '1px solid var(--border-light)',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-                    position: 'relative',
-                    background: '#FFFFFF'
-                  }}
-                >
-                  <div>
-                    {/* Card Header: Avatar & Category */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.1rem' }}>
                     <div style={{
+                      width: '44px',
+                      height: '44px',
+                      borderRadius: '50%',
+                      background: item.avatarColor || 'linear-gradient(135deg, #3A6B68, #244846)',
+                      color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '1rem'
+                      justifyContent: 'center',
+                      fontWeight: '800',
+                      fontSize: '1.05rem',
+                      boxShadow: '0 4px 10px rgba(0,0,0,0.15)'
                     }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <div style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '50%',
-                          background: item.avatarColor || 'linear-gradient(135deg, #3A6B68, #244846)',
-                          color: '#FFFFFF',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontWeight: '800',
-                          fontSize: '0.98rem',
-                          boxShadow: '0 3px 10px rgba(58, 107, 104, 0.2)'
-                        }}>
-                          {item.name.charAt(0)}
-                        </div>
-                        <div>
-                          <div style={{ fontWeight: '700', fontSize: '0.95rem', color: 'var(--primary-dark)' }}>
-                            {item.name}
-                          </div>
-                          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
-                            <MapPin size={11} color="#3A6B68" /> {item.location}
-                          </div>
-                        </div>
+                      {item.name ? item.name.charAt(0) : 'A'}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--primary-dark)', lineHeight: '1.2' }}>
+                        {item.name}
+                      </h4>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
+                        {item.location}
                       </div>
-
-                      <Quote size={22} color="rgba(58, 107, 104, 0.2)" />
                     </div>
-
-                    {/* Tags & Scripture */}
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      flexWrap: 'wrap',
-                      marginBottom: '1rem'
-                    }}>
-                      <span style={{
-                        fontSize: '0.72rem',
-                        fontWeight: '700',
-                        background: 'rgba(58, 107, 104, 0.1)',
-                        color: '#3A6B68',
-                        padding: '0.25rem 0.65rem',
-                        borderRadius: '9999px',
-                        letterSpacing: '0.02em',
-                        textTransform: 'uppercase'
-                      }}>
-                        {item.tag}
-                      </span>
-                      <span style={{
-                        fontSize: '0.75rem',
-                        background: 'var(--bg-parchment)',
-                        padding: '0.25rem 0.6rem',
-                        borderRadius: '6px',
-                        color: 'var(--primary-dark)',
-                        fontWeight: '600',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.25rem'
-                      }}>
-                        <BookOpen size={11} /> {item.scripture}
-                      </span>
-                    </div>
-
-                    {/* Testimony Story */}
-                    <p style={{
-                      fontSize: '0.9rem',
-                      lineHeight: '1.65',
-                      color: 'var(--text-dark-soft)',
-                      marginBottom: '1.4rem',
-                      fontStyle: 'italic'
-                    }}>
-                      "{item.story}"
-                    </p>
                   </div>
 
-                  {/* Card Footer: Verified Star Rating & Date */}
-                  <div style={{
-                    borderTop: '1px solid var(--border-light)',
-                    paddingTop: '0.85rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
+                  <p style={{
+                    fontSize: '0.9rem',
+                    color: 'var(--text-dark)',
+                    lineHeight: '1.6',
+                    marginBottom: '1.2rem'
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={13} fill="#3A6B68" color="#3A6B68" />
-                      ))}
-                      <span style={{ fontSize: '0.74rem', fontWeight: '700', color: '#3A6B68', marginLeft: '0.3rem' }}>Verified</span>
-                    </div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                      {item.date || 'Verified Story'}
-                    </span>
-                  </div>
+                    "{item.story}"
+                  </p>
                 </div>
-              ))}
-            </div>
+
+                <div style={{
+                  borderTop: '1px solid var(--border-light)',
+                  paddingTop: '0.85rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={13} fill="#3A6B68" color="#3A6B68" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    {item.date || 'Verified Story'}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: OUR DIGITAL SANCTUARY (PRODUCT INTRO BANNER) */}
+      {/* SECTION 4: OUR DIGITAL SANCTUARY */}
       <section style={{ padding: '6rem 0', background: 'var(--bg-parchment)' }}>
         <div className="container">
           <div style={{
@@ -707,7 +603,6 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
             gap: '4rem',
             alignItems: 'center'
           }}>
-            {/* Left Side: Premium Gradient Container with 3D Pop-Out iPhone */}
             <div style={{
               position: 'relative',
               borderRadius: '32px',
@@ -718,28 +613,11 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               alignItems: 'center',
               justifyContent: 'center',
               overflow: 'visible',
-              padding: '2rem',
-              marginTop: '30px',
-              marginBottom: '30px'
+              padding: '2rem'
             }}>
-              {/* Luminous Glow Backlight Effect */}
-              <div style={{
-                position: 'absolute',
-                width: '320px',
-                height: '320px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(168, 224, 221, 0.4) 0%, rgba(58, 107, 104, 0.08) 70%, transparent 100%)',
-                filter: 'blur(45px)',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                pointerEvents: 'none'
-              }} />
-
-              {/* Ultra Big 3D iPhone Image Popping Out of Top & Bottom */}
               <img
                 src="/images/iPhone.png"
-                alt="Arkbible 3D iPhone App Showcase"
+                alt="Arkbible App Showcase"
                 style={{
                   position: 'relative',
                   zIndex: 2,
@@ -747,23 +625,20 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   height: '660px',
                   objectFit: 'contain',
                   marginTop: '-30px',
-                  filter: 'drop-shadow(0 35px 70px rgba(0, 0, 0, 0.55))',
-                  transition: 'transform 0.4s ease'
+                  filter: 'drop-shadow(0 35px 70px rgba(0, 0, 0, 0.55))'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1) translateY(0)'}
               />
             </div>
 
             <div>
               <div className="teal-badge" style={{ marginBottom: '1rem' }}>
-                Digital Tool & Sanctuary
+                {t('product.badge')}
               </div>
               <h2 className="heading-lg" style={{ marginBottom: '1rem' }}>
-                Equipping Your Daily Walk: The Arkbible App
+                {t('product.titleLine1')} {t('product.titleLine2')}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.06rem', lineHeight: '1.7', marginBottom: '1.8rem' }}>
-                A warm, dedicated introduction to the Arkbible mobile application—built specifically to give our global community a 100% ad-free, offline-ready space for daily reading, quiet reflection, and AI-assisted theological study.
+                {t('product.subtitle')}
               </p>
 
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: '2.2rem' }}>
@@ -771,19 +646,19 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   <div style={{ background: 'var(--primary-subtle)', padding: '0.35rem', borderRadius: '50%', color: '#3A6B68' }}>
                     <Check size={16} />
                   </div>
-                  Pre-bundled translations (KJV, WEB, Louis Segond, Reina-Valera) with 0 data cost
+                  {t('product.spec1')}
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                   <div style={{ background: 'var(--primary-subtle)', padding: '0.35rem', borderRadius: '50%', color: '#3A6B68' }}>
                     <Check size={16} />
                   </div>
-                  AI Vector RAG verse search ("How Are You Feeling?") with 0% hallucination
+                  {t('product.feat4Title')} (0% hallucination)
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                   <div style={{ background: 'var(--primary-subtle)', padding: '0.35rem', borderRadius: '50%', color: '#3A6B68' }}>
                     <Check size={16} />
                   </div>
-                  Native Offline Text-To-Speech audio reading out loud
+                  {t('product.feat3Title')}
                 </li>
               </ul>
 
@@ -791,14 +666,14 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 className="btn btn-primary"
                 onClick={() => navigateTo('/product')}
               >
-                Explore App Features <ArrowRight size={18} />
+                {t('buttons.learnMore')} <ArrowRight size={18} />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: GET INVOLVED & GLOBAL KINGDOM MOVEMENT (BACKGROUND: part2.jpg COVER CENTER CENTER) */}
+      {/* SECTION 5: GLOBAL KINGDOM MOVEMENT */}
       <section style={{
         position: 'relative',
         padding: '6rem 0',
@@ -810,13 +685,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem auto' }}>
             <div className="hero-badge" style={{ marginBottom: '0.8rem' }}>
-              <Globe2 size={16} /> Global Kingdom Movement
+              <Globe2 size={16} /> {t('nav.kingdomMovement')}
             </div>
             <h2 className="heading-lg" style={{ color: '#FFFFFF' }}>
-              Be Part of Something Bigger
+              {t('home.statsTitle')}
             </h2>
             <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.08rem', marginTop: '0.6rem', fontWeight: '500' }}>
-              Whether praying with believers, partnering financially, or introducing Arkbible to your local church leaders, your step matters.
+              {t('home.statsSubtitle')}
             </p>
           </div>
 
@@ -849,17 +724,17 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 <HeartHandshake size={32} />
               </div>
               <h3 className="heading-md" style={{ marginBottom: '0.8rem' }}>
-                Pray With Us
+                {t('nav.volunteering')}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1.8rem', lineHeight: '1.65' }}>
-                Join our daily prayer circle to lift up prayer requests submitted by believers globally.
+                {t('volunteer.subtitle')}
               </p>
               <button
                 className="btn btn-outline-teal"
                 style={{ width: '100%' }}
                 onClick={() => navigateTo('/contact')}
               >
-                Send Prayer Request
+                {t('buttons.contactUs')}
               </button>
             </div>
 
@@ -888,17 +763,17 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 <Sparkles size={32} />
               </div>
               <h3 className="heading-md" style={{ marginBottom: '0.8rem' }}>
-                Partner Financially
+                {t('nav.donation')}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1.8rem', lineHeight: '1.65' }}>
-                Help keep Arkbible 100% ad-free, offline-accessible, and expanding into global language translations.
+                {t('donate.subtitle')}
               </p>
               <button
                 className="btn btn-primary"
                 style={{ width: '100%' }}
                 onClick={() => navigateTo('/partner')}
               >
-                Partner & Give
+                {t('buttons.donateNow')}
               </button>
             </div>
 
@@ -926,17 +801,17 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 <Church size={32} />
               </div>
               <h3 className="heading-md" style={{ marginBottom: '0.8rem' }}>
-                Church Alliances
+                {t('nav.partners')}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1.8rem', lineHeight: '1.65' }}>
-                Equip your local congregation with church sermon note tools and youth study resources.
+                {t('partner.subtitle')}
               </p>
               <button
                 className="btn btn-outline-teal"
                 style={{ width: '100%' }}
                 onClick={() => navigateTo('/partner')}
               >
-                Church Alliances
+                {t('buttons.becomePartner')}
               </button>
             </div>
           </div>

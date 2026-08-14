@@ -70,10 +70,10 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
           <div className="hero-badge" style={{ marginBottom: '1.2rem', display: 'inline-flex' }}>
-            <Heart size={16} color="#A8E0DD" /> Kingdom Stewardship & Giving
+            <Heart size={16} color="#A8E0DD" /> {t('donate.badge')}
           </div>
           <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            Empower God's Word <span className="text-gradient-green">Globally</span>
+            {t('donate.title')}
           </h1>
           <p style={{
             fontSize: '1.18rem',
@@ -81,7 +81,7 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
             lineHeight: '1.75',
             marginBottom: '2rem'
           }}>
-            Arkbible is built as a 100% ad-free, commercial-free non-profit digital sanctuary. Your financial support keeps scripture freely accessible to offline and remote communities worldwide.
+            {t('donate.subtitle')}
           </p>
         </div>
       </section>
@@ -91,13 +91,13 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
-              Financial Partnership Gateway
+              {t('donate.badge')}
             </div>
             <h2 className="heading-lg">
-              Support the Movement
+              {t('donate.title')}
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '0.4rem' }}>
-              Choose a recurring monthly partnership or a one-time Kingdom gift.
+              {t('donate.subtitle')}
             </p>
           </div>
 
@@ -159,14 +159,14 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
                   onClick={() => setGiveType('monthly')}
                   className={`giving-toggle-btn ${giveType === 'monthly' ? 'active' : ''}`}
                 >
-                  Monthly Partnership
+                  {t('donate.giveMonthly')}
                 </button>
                 <button
                   type="button"
                   onClick={() => setGiveType('onetime')}
                   className={`giving-toggle-btn ${giveType === 'onetime' ? 'active' : ''}`}
                 >
-                  One-Time Gift
+                  {t('donate.giveOneTime')}
                 </button>
               </div>
 

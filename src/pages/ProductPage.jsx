@@ -190,7 +190,7 @@ export default function ProductPage({ onOpenDownload }) {
 
   return (
     <div>
-      {/* SECTION 1: HERO BANNER WITH mock.png BACKGROUND & LEFT-ALIGNED CONTENT */}
+      {/* SECTION 1: HERO BANNER WITH mock.png BACKGROUND */}
       <section style={{
         position: 'relative',
         minHeight: '540px',
@@ -206,10 +206,10 @@ export default function ProductPage({ onOpenDownload }) {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ textAlign: 'left', maxWidth: '580px' }}>
             <div className="hero-badge" style={{ marginBottom: '1.4rem' }}>
-              <Sparkles size={16} /> Arkbible Mobile Application
+              <Sparkles size={16} /> {t('product.badge')}
             </div>
             <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.4rem', fontSize: '3rem', lineHeight: '1.2' }}>
-              Arkbible: Your Personal & <span className="text-gradient-green">Offline Daily Sanctuary</span>.
+              {t('product.titleLine1')} <span className="text-gradient-green">{t('product.titleLine2')}</span>.
             </h1>
             <p style={{
               fontSize: '1.18rem',
@@ -217,15 +217,15 @@ export default function ProductPage({ onOpenDownload }) {
               marginBottom: '2.5rem',
               lineHeight: '1.75'
             }}>
-              An ad-free, intelligent mobile Bible designed for quiet reflection, deep study, and daily encouragement without commercial noise or data dependencies.
+              {t('product.subtitle')}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.2rem' }}>
               <button className="btn btn-primary" onClick={onOpenDownload} style={{ padding: '0.85rem 1.8rem' }}>
-                <Download size={18} /> Download on App Store
+                <Download size={18} /> {t('modals.appStore')}
               </button>
               <button className="btn btn-outline-light" onClick={onOpenDownload} style={{ padding: '0.85rem 1.8rem' }}>
-                <Download size={18} /> Download on Google Play
+                <Download size={18} /> {t('modals.playStore')}
               </button>
             </div>
           </div>

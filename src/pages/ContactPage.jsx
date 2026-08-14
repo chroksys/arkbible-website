@@ -63,10 +63,10 @@ export default function ContactPage({ onSubmitToast }) {
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
           <div className="hero-badge" style={{ marginBottom: '1.2rem' }}>
-            <MessageSquare size={16} /> Direct Outreach & Community Prayer
+            <MessageSquare size={16} /> {t('contact.badge')}
           </div>
           <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            We Are <span className="text-gradient-green">Here for You</span>.
+            {t('contact.title')}
           </h1>
           <p style={{
             fontSize: '1.18rem',
@@ -74,7 +74,7 @@ export default function ContactPage({ onSubmitToast }) {
             lineHeight: '1.7',
             marginBottom: '2rem'
           }}>
-            Have a question, a prayer request, or a church partnership inquiry? Reach out to our global ministry team.
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
