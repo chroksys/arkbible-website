@@ -4,8 +4,10 @@ import {
   Heart, CreditCard, Sparkles, CheckCircle2, ShieldCheck,
   DollarSign, PieChart, Globe, Zap, HeartHandshake, Mail, User
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function DonatePage({ navigateTo, onSubmitToast }) {
+  const { t } = useLanguage();
   const [giveType, setGiveType] = useState('monthly');
   const [selectedAmount, setSelectedAmount] = useState(25);
   const [customAmount, setCustomAmount] = useState('');

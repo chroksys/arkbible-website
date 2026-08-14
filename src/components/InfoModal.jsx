@@ -1,7 +1,9 @@
 import React from 'react';
 import { X, Shield, Lock, FileText } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function InfoModal({ isOpen, type, onClose }) {
+  const { t } = useLanguage();
   if (!isOpen) return null;
 
   const isPrivacy = type === 'privacy';

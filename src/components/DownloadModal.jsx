@@ -1,7 +1,9 @@
 import React from 'react';
 import { X, ShieldCheck, WifiOff, Star, QrCode } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function DownloadModal({ isOpen, onClose }) {
+  const { t } = useLanguage();
   if (!isOpen) return null;
 
   return (

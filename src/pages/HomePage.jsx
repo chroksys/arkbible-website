@@ -4,8 +4,10 @@ import {
   ShieldCheck, MessageSquareQuote, PlusCircle, Sparkles, Church, Globe2,
   Check, MapPin, ChevronLeft, ChevronRight, Quote
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory, customStories = [] }) {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('All');
   const sliderRef = useRef(null);
 
@@ -83,7 +85,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
   return (
     <div>
-      {/* SECTION 1: HERO BANNER (BACKGROUND IMAGE: /images/good.webp) */}
+      {/* SECTION 1: HERO BANNER */}
       <section style={{
         position: 'relative',
         padding: '7.5rem 0 6rem 0',
@@ -96,10 +98,10 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
         <div className="container hero-content">
           <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
             <div className="hero-badge" style={{ marginBottom: '1.4rem' }}>
-              <Sparkles size={16} /> Global Believers Movement
+              <Sparkles size={16} /> {t('home.heroTag')}
             </div>
             <h1 className="heading-xl" style={{ color: '#ffffff', marginBottom: '1.4rem' }}>
-              A Godly Community Rooted in <span className="text-gradient-green">Scripture</span>, Prayer, & Fellowship.
+              {t('home.heroTitleLine1')} <span className="text-gradient-green">{t('home.heroTitleLine2')}</span>
             </h1>
             <p style={{
               fontSize: '1.2rem',
@@ -107,7 +109,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               marginBottom: '2.5rem',
               lineHeight: '1.75'
             }}>
-              Bringing believers together globally to grow deeper in faith, support one another through life’s seasons, and stay anchored in God’s Word.
+              {t('home.heroSubtitle')}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', marginBottom: '2.8rem' }}>
@@ -115,13 +117,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 className="btn btn-primary"
                 onClick={onOpenSubmitStory}
               >
-                <Users size={18} /> Join Our Community
+                <Users size={18} /> {t('buttons.shareStory')}
               </button>
               <button
                 className="btn btn-outline-light"
                 onClick={onOpenDownload}
               >
-                <Download size={18} /> Get the Arkbible App
+                <Download size={18} /> {t('buttons.downloadFree')}
               </button>
             </div>
 

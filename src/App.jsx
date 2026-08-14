@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DownloadModal from './components/DownloadModal';
@@ -49,116 +50,119 @@ export default function App() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div style={{
-          position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          zIndex: 3000,
-          background: '#152220',
-          border: '1.5px solid var(--secondary)',
-          borderRadius: '16px',
-          padding: '1rem 1.5rem',
-          color: '#ffffff',
-          boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
-          maxWidth: '400px',
-          animation: 'modalSlideUp 0.3s ease-out',
-          fontSize: '0.92rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.8rem'
-        }}>
-          <span style={{ fontSize: '1.2rem' }}>✨</span>
-          <div>{toastMessage}</div>
-        </div>
-      )}
-
-      {/* Sticky Header Navbar */}
-      <Navbar
-        activeRoute={activeRoute}
-        navigateTo={navigateTo}
-        onOpenDownload={() => setIsDownloadOpen(true)}
-      />
-
-      {/* Dynamic Page Router */}
-      <main style={{ flex: 1 }}>
-        {activeRoute === '/' && (
-          <HomePage
-            navigateTo={navigateTo}
-            onOpenDownload={() => setIsDownloadOpen(true)}
-            onOpenSubmitStory={() => setIsSubmitStoryOpen(true)}
-            customStories={userStories}
-          />
+    <LanguageProvider>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        {/* Toast Notification */}
+        {toastMessage && (
+          <div style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            zIndex: 3000,
+            background: '#152220',
+            border: '1.5px solid var(--secondary)',
+            borderRadius: '16px',
+            padding: '1rem 1.5rem',
+            color: '#ffffff',
+            boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+            maxWidth: '400px',
+            animation: 'modalSlideUp 0.3s ease-out',
+            fontSize: '0.92rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.8rem'
+          }}>
+            <span style={{ fontSize: '1.2rem' }}>✨</span>
+            <div>{toastMessage}</div>
+          </div>
         )}
 
-        {activeRoute === '/about' && (
-          <AboutPage
-            navigateTo={navigateTo}
-            onOpenDownload={() => setIsDownloadOpen(true)}
-          />
-        )}
+        {/* Sticky Header Navbar */}
+        <Navbar
+          activeRoute={activeRoute}
+          navigateTo={navigateTo}
+          onOpenDownload={() => setIsDownloadOpen(true)}
+        />
 
-        {activeRoute === '/product' && (
-          <ProductPage
-            onOpenDownload={() => setIsDownloadOpen(true)}
-          />
-        )}
+        {/* Dynamic Page Router */}
+        <main style={{ flex: 1 }}>
+          {activeRoute === '/' && (
+            <HomePage
+              navigateTo={navigateTo}
+              onOpenDownload={() => setIsDownloadOpen(true)}
+              onOpenSubmitStory={() => setIsSubmitStoryOpen(true)}
+              customStories={userStories}
+            />
+          )}
 
-        {activeRoute === '/partner' && (
-          <PartnerPage
-            navigateTo={navigateTo}
-            onSubmitToast={showToast}
-          />
-        )}
+          {activeRoute === '/about' && (
+            <AboutPage
+              navigateTo={navigateTo}
+              onOpenDownload={() => setIsDownloadOpen(true)}
+            />
+          )}
 
-        {activeRoute === '/donate' && (
-          <DonatePage
-            navigateTo={navigateTo}
-            onSubmitToast={showToast}
-          />
-        )}
+          {activeRoute === '/product' && (
+            <ProductPage
+              onOpenDownload={() => setIsDownloadOpen(true)}
+            />
+          )}
 
-        {activeRoute === '/volunteer' && (
-          <VolunteerPage
-            navigateTo={navigateTo}
-            onSubmitToast={showToast}
-          />
-        )}
+          {activeRoute === '/partner' && (
+            <PartnerPage
+              navigateTo={navigateTo}
+              onSubmitToast={showToast}
+            />
+          )}
 
-        {activeRoute === '/contact' && (
-          <ContactPage
-            onSubmitToast={showToast}
-          />
-        )}
-      </main>
+          {activeRoute === '/donate' && (
+            <DonatePage
+              navigateTo={navigateTo}
+              onSubmitToast={showToast}
+            />
+          )}
 
-      {/* Universal Footer */}
-      <Footer
-        navigateTo={navigateTo}
-        onOpenDownload={() => setIsDownloadOpen(true)}
-        onOpenPrivacy={() => setInfoModalType('privacy')}
-        onOpenTerms={() => setInfoModalType('terms')}
-      />
+          {activeRoute === '/volunteer' && (
+            <VolunteerPage
+              navigateTo={navigateTo}
+              onSubmitToast={showToast}
+            />
+          )}
 
-      {/* Global Modals */}
-      <DownloadModal
-        isOpen={isDownloadOpen}
-        onClose={() => setIsDownloadOpen(false)}
-      />
+          {activeRoute === '/contact' && (
+            <ContactPage
+              onSubmitToast={showToast}
+            />
+          )}
+        </main>
 
-      <SubmitStoryModal
-        isOpen={isSubmitStoryOpen}
-        onClose={() => setIsSubmitStoryOpen(false)}
-        onSubmitSuccess={handleStorySubmitSuccess}
-      />
+        {/* Universal Footer */}
+        <Footer
+          navigateTo={navigateTo}
+          onOpenDownload={() => setIsDownloadOpen(true)}
+          onOpenPrivacy={() => setInfoModalType('privacy')}
+          onOpenTerms={() => setInfoModalType('terms')}
+        />
 
-      <InfoModal
-        isOpen={!!infoModalType}
-        type={infoModalType}
-        onClose={() => setInfoModalType(null)}
-      />
-    </div>
+        {/* Global Modals */}
+        <DownloadModal
+          isOpen={isDownloadOpen}
+          onClose={() => setIsDownloadOpen(false)}
+        />
+
+        <SubmitStoryModal
+          isOpen={isSubmitStoryOpen}
+          onClose={() => setIsSubmitStoryOpen(false)}
+          onSubmitSuccess={handleStorySubmitSuccess}
+        />
+
+        <InfoModal
+          isOpen={!!infoModalType}
+          type={infoModalType}
+          onClose={() => setInfoModalType(null)}
+        />
+      </div>
+    </LanguageProvider>
   );
 }
+

@@ -3,8 +3,10 @@ import confetti from 'canvas-confetti';
 import {
   Church, CheckCircle2, Building, Zap, HeartHandshake
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function PartnerPage({ navigateTo, onSubmitToast }) {
+  const { t } = useLanguage();
   const [churchForm, setChurchForm] = useState({
     name: '',
     churchName: '',

@@ -4,8 +4,10 @@ import {
   Compass, Globe, BookOpen, HeartHandshake, Zap, CheckCircle2,
   User, Mail, Phone, Send, ShieldCheck, ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function VolunteerPage({ navigateTo, onSubmitToast }) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',

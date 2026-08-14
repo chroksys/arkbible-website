@@ -3,8 +3,10 @@ import {
   Mail, MessageSquare, Send, Heart, HelpCircle, ChevronDown, ChevronUp,
   Globe, ShieldCheck, CheckCircle2, Instagram, Twitter, Youtube, Sparkles
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ContactPage({ onSubmitToast }) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

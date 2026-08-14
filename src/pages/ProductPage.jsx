@@ -6,8 +6,10 @@ import {
   Smartphone, WifiOff, RefreshCw, Zap, Scroll, Sprout, PartyPopper, Play,
   Cross, ChevronDown, ChevronUp
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProductPage({ onOpenDownload }) {
+  const { t } = useLanguage();
   // Device Showcase active screen
   const [activeScreen, setActiveScreen] = useState('home');
   const screens = [

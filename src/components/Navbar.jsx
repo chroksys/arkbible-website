@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Menu, X, Download, ChevronDown, Church, Heart, Compass } from 'lucide-react';
+import { Menu, X, Download, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
+  const { t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
@@ -69,7 +72,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               onClick={(e) => { e.preventDefault(); handleNavClick('/'); }}
               className={`nav-link ${activeRoute === '/' ? 'active' : ''}`}
             >
-              Home
+              {t('nav.home')}
             </a>
           </li>
 
@@ -79,11 +82,11 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               onClick={(e) => { e.preventDefault(); handleNavClick('/about'); }}
               className={`nav-link ${activeRoute === '/about' ? 'active' : ''}`}
             >
-              Mission
+              {t('nav.mission')}
             </a>
           </li>
 
-          {/* PRODUCTS DROPDOWN LINK (HOVER & MOBILE CLICK) */}
+          {/* PRODUCTS DROPDOWN LINK */}
           <li
             style={{ position: 'relative' }}
             onMouseEnter={handleMouseEnter}
@@ -101,7 +104,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                 userSelect: 'none'
               }}
             >
-              Products
+              {t('nav.products')}
               <ChevronDown
                 size={16}
                 style={{
@@ -111,7 +114,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               />
             </span>
 
-            {/* PRODUCTS DROPDOWN MENU WITH dpp.png ON LEFT SIDE & TEXT ON RIGHT SIDE */}
+            {/* PRODUCTS DROPDOWN MENU */}
             {productsDropdownOpen && (
               <div
                 className="nav-dropdown-menu"
@@ -130,7 +133,6 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                   animation: 'fadeIn 0.2s ease-out'
                 }}
               >
-                {/* Card Item: dpp.png Image on Left, Text & Button on Right */}
                 <div
                   className="nav-dropdown-card"
                   onClick={() => handleNavClick('/product')}
@@ -154,7 +156,6 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
-                  {/* LEFT SIDE: dpp.png Image (Fills container perfectly & larger) */}
                   <div style={{
                     flexShrink: 0,
                     width: '160px',
@@ -176,24 +177,23 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     />
                   </div>
 
-                  {/* RIGHT SIDE: Text & Get App Button */}
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px' }}>
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
                         <span style={{ fontSize: '0.72rem', fontWeight: '800', color: '#3A6B68', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                          Mobile Sanctuary
+                          {t('nav.mobileSanctuary')}
                         </span>
                         <span style={{ fontSize: '0.68rem', fontWeight: '700', background: 'var(--primary-subtle)', color: '#3A6B68', padding: '0.15rem 0.55rem', borderRadius: '9999px' }}>
-                          100% Free
+                          {t('nav.freeBadge')}
                         </span>
                       </div>
 
                       <h4 style={{ fontSize: '1.18rem', fontWeight: '800', color: 'var(--primary-dark)', lineHeight: '1.3', marginBottom: '0.4rem' }}>
-                        Arkbible Mobile App
+                        {t('nav.appTitle')}
                       </h4>
 
                       <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: '1.45', marginBottom: '0.8rem' }}>
-                        Ad-free scripture sanctuary with pre-bundled multi-translation Bibles & 0% AI hallucination verse search.
+                        {t('nav.appDesc')}
                       </p>
                     </div>
 
@@ -217,7 +217,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                         boxShadow: '0 4px 12px rgba(58, 107, 104, 0.3)'
                       }}
                     >
-                      <Download size={15} /> Get the App Now
+                      <Download size={15} /> {t('buttons.getAppNow')}
                     </button>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             )}
           </li>
 
-          {/* COMMUNITY DROPDOWN LINK (HOVER & MOBILE CLICK) */}
+          {/* COMMUNITY DROPDOWN LINK */}
           <li
             style={{ position: 'relative' }}
             onMouseEnter={handleMouseEnterCommunity}
@@ -243,7 +243,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                 userSelect: 'none'
               }}
             >
-              Community
+              {t('nav.community')}
               <ChevronDown
                 size={16}
                 style={{
@@ -253,7 +253,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               />
             </span>
 
-            {/* COMMUNITY DROPDOWN MENU WITH PREVIEW IMAGE ON LEFT & SUBPAGES ON RIGHT */}
+            {/* COMMUNITY DROPDOWN MENU */}
             {communityDropdownOpen && (
               <div
                 className="nav-dropdown-menu nav-dropdown-community"
@@ -275,7 +275,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                   gap: '1.2rem'
                 }}
               >
-                {/* LEFT SIDE: Preview Image Card */}
+                {/* LEFT SIDE: Preview Card */}
                 <div
                   className="nav-dropdown-preview-card"
                   style={{
@@ -307,16 +307,16 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     whiteSpace: 'nowrap',
                     marginBottom: '0.4rem'
                   }}>
-                    Kingdom Movement
+                    {t('nav.kingdomMovement')}
                   </span>
                   <div style={{ fontSize: '0.86rem', fontWeight: '800', lineHeight: '1.35', color: '#FFFFFF' }}>
-                    Global Believers & Field Service
+                    {t('nav.globalBelievers')}
                   </div>
                 </div>
 
-                {/* RIGHT SIDE: 3 Subpages List */}
+                {/* RIGHT SIDE: Subpages List */}
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                  {/* Subpage 1: Partners */}
+                  {/* Partners */}
                   <a
                     href="/partner"
                     onClick={(e) => { e.preventDefault(); handleNavClick('/partner'); }}
@@ -348,15 +348,15 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     />
                     <div>
                       <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary-dark)', lineHeight: '1.2' }}>
-                        Partners
+                        {t('nav.partners')}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                        Church & Pastor Alliances
+                        {t('nav.partnersDesc')}
                       </div>
                     </div>
                   </a>
 
-                  {/* Subpage 2: Donation */}
+                  {/* Donation */}
                   <a
                     href="/donate"
                     onClick={(e) => { e.preventDefault(); handleNavClick('/donate'); }}
@@ -388,15 +388,15 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     />
                     <div>
                       <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary-dark)', lineHeight: '1.2' }}>
-                        Donation
+                        {t('nav.donation')}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                        Kingdom Financial Giving
+                        {t('nav.donationDesc')}
                       </div>
                     </div>
                   </a>
 
-                  {/* Subpage 3: Volunteering */}
+                  {/* Volunteering */}
                   <a
                     href="/volunteer"
                     onClick={(e) => { e.preventDefault(); handleNavClick('/volunteer'); }}
@@ -428,10 +428,10 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
                     />
                     <div>
                       <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary-dark)', lineHeight: '1.2' }}>
-                        Volunteering
+                        {t('nav.volunteering')}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                        Field Missionary Service
+                        {t('nav.volunteeringDesc')}
                       </div>
                     </div>
                   </a>
@@ -446,32 +446,35 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
               onClick={(e) => { e.preventDefault(); handleNavClick('/contact'); }}
               className={`nav-link ${activeRoute === '/contact' ? 'active' : ''}`}
             >
-              Contact
+              {t('nav.contact')}
             </a>
           </li>
 
-          {/* Mobile CTA */}
+          {/* Mobile Language Switcher & Mobile CTA */}
           {mobileOpen && (
-            <li style={{ marginTop: '1rem' }}>
+            <li style={{ marginTop: '1rem', width: '100%' }}>
+              <LanguageSwitcher isMobile={true} />
               <button
                 className="btn btn-primary"
-                style={{ width: '100%' }}
+                style={{ width: '100%', marginTop: '0.8rem' }}
                 onClick={() => { setMobileOpen(false); onOpenDownload(); }}
               >
-                <Download size={18} /> Get the App
+                <Download size={18} /> {t('nav.getApp')}
               </button>
             </li>
           )}
         </ul>
 
         {/* Header Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <LanguageSwitcher />
+
           <button
             className="btn btn-primary"
             style={{ display: mobileOpen ? 'none' : 'inline-flex' }}
             onClick={onOpenDownload}
           >
-            <Download size={18} /> Get the App
+            <Download size={18} /> {t('nav.getApp')}
           </button>
 
           <button

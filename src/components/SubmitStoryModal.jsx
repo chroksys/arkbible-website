@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { X, Send, Heart, BookOpen } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function SubmitStoryModal({ isOpen, onClose, onSubmitSuccess }) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     location: '',

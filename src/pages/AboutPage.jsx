@@ -3,8 +3,10 @@ import {
   BookOpen, ShieldCheck, Heart, Users, Globe2, ChevronDown, ChevronUp,
   Sparkles, CheckCircle2, MapPin, Award, Layers, ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage({ navigateTo, onOpenDownload }) {
+  const { t } = useLanguage();
   const [expandedFaith, setExpandedFaith] = useState(0);
 
   const statementOfFaith = [

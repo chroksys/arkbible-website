@@ -1,7 +1,10 @@
 import React from 'react';
 import { ShieldCheck, Mail } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOpenTerms }) {
+  const { t } = useLanguage();
+
   return (
     <footer style={{
       position: 'relative',
@@ -11,7 +14,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
       paddingBottom: '2.5rem',
       background: '#0B1413'
     }}>
-      {/* Background Loop Video: glob.mp4 */}
+      {/* Background Loop Video */}
       <video
         autoPlay
         loop
@@ -30,7 +33,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
         }}
       />
 
-      {/* Dark Vignette Overlay for High-Contrast Text Legibility */}
+      {/* Dark Overlay */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -48,7 +51,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
           gap: '3rem',
           marginBottom: '3.5rem'
         }}>
-          {/* Col 1: Brand Logo (Only Logo, No Title Text Next To It) */}
+          {/* Col 1: Brand Logo */}
           <div>
             <div style={{ marginTop: '-110px', marginBottom: '-70px' }}>
               <a
@@ -86,7 +89,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               marginBottom: '1.4rem',
               color: 'rgba(255, 255, 255, 0.88)'
             }}>
-              Bringing believers together globally to grow deeper in faith, support one another through life's seasons, and stay anchored in God’s Word.
+              {t('footer.tagline')}
             </p>
             <div className="hero-badge" style={{ display: 'inline-flex', fontSize: '0.8rem', padding: '0.4rem 0.9rem' }}>
               <ShieldCheck size={14} color="#528986" /> 100% Ad-Free Sanctuary
@@ -102,7 +105,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               marginBottom: '1.2rem',
               fontFamily: 'var(--font-serif)'
             }}>
-              Navigation
+              {t('footer.quickLinks')}
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.92rem' }}>
               <li>
@@ -113,7 +116,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Home (Community & Movement)
+                  {t('nav.home')}
                 </a>
               </li>
               <li>
@@ -124,7 +127,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  About / Mission
+                  {t('nav.mission')}
                 </a>
               </li>
               <li>
@@ -135,7 +138,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Arkbible App Features
+                  {t('nav.products')}
                 </a>
               </li>
               <li>
@@ -146,7 +149,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Partners (Church & Pastoral)
+                  {t('nav.partners')}
                 </a>
               </li>
               <li>
@@ -157,7 +160,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Donation (Kingdom Giving)
+                  {t('nav.donation')}
                 </a>
               </li>
               <li>
@@ -168,7 +171,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Volunteering (Missionary Field)
+                  {t('nav.volunteering')}
                 </a>
               </li>
               <li>
@@ -179,13 +182,13 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                   onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)'}
                 >
-                  Contact & Prayer Support
+                  {t('nav.contact')}
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Download Badges (Official Apple App Store & Google Play Store) */}
+          {/* Col 3: Download Badges */}
           <div>
             <h4 style={{
               color: '#FFFFFF',
@@ -194,13 +197,12 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               marginBottom: '1.2rem',
               fontFamily: 'var(--font-serif)'
             }}>
-              Download Arkbible
+              {t('modals.downloadTitle')}
             </h4>
             <p style={{ fontSize: '0.9rem', marginBottom: '1.4rem', color: 'rgba(255, 255, 255, 0.88)', lineHeight: '1.6' }}>
-              Experience an ad-free, intelligent mobile sanctuary for quiet reflection and daily study.
+              {t('product.subtitle')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {/* Pixel-Perfect Apple App Store Badge */}
               <button
                 onClick={onOpenDownload}
                 style={{
@@ -231,11 +233,10 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                 </svg>
                 <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
                   <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.8, fontWeight: '500' }}>Download on the</span>
-                  <span style={{ fontSize: '1.05rem', fontWeight: '700', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>App Store</span>
+                  <span style={{ fontSize: '1.05rem', fontWeight: '700' }}>App Store</span>
                 </div>
               </button>
 
-              {/* Google Play Store Badge */}
               <button
                 onClick={onOpenDownload}
                 style={{
@@ -269,7 +270,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
                 </svg>
                 <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
                   <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.8, fontWeight: '500' }}>GET IT ON</span>
-                  <span style={{ fontSize: '1.05rem', fontWeight: '700', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>Google Play</span>
+                  <span style={{ fontSize: '1.05rem', fontWeight: '700' }}>Google Play</span>
                 </div>
               </button>
             </div>
@@ -284,10 +285,10 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               marginBottom: '1.2rem',
               fontFamily: 'var(--font-serif)'
             }}>
-              Direct Support & Outreach
+              {t('contact.title')}
             </h4>
             <p style={{ fontSize: '0.9rem', marginBottom: '1rem', color: 'rgba(255, 255, 255, 0.88)', lineHeight: '1.6' }}>
-              Have questions, feedback, or a prayer request? Our team is always here for you.
+              {t('contact.subtitle')}
             </p>
             <a
               href="mailto:info@arkbible.app"
@@ -319,27 +320,27 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
           color: 'rgba(255, 255, 255, 0.7)'
         }}>
           <div>
-            © {new Date().getFullYear()} Arkbible Community & Ministry. Built with faith and love for believers worldwide.
+            {t('footer.copyright')}
           </div>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <button
               onClick={onOpenPrivacy}
               style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.8)', cursor: 'pointer' }}
             >
-              Privacy Policy
+              {t('footer.privacy')}
             </button>
             <button
               onClick={onOpenTerms}
               style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.8)', cursor: 'pointer' }}
             >
-              Terms of Service
+              {t('footer.terms')}
             </button>
             <a
               href="/contact"
               onClick={(e) => { e.preventDefault(); navigateTo('/contact'); }}
               style={{ color: 'rgba(255, 255, 255, 0.8)', textDecoration: 'none' }}
             >
-              Support Center
+              {t('nav.contact')}
             </a>
           </div>
         </div>
