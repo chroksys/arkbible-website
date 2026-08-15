@@ -610,8 +610,8 @@ video {
 /* Responsive Rules */
 @media (max-width: 992px) {
   .brand-logo-img {
-    height: 42px !important;
-    max-height: 45px !important;
+    height: 200px !important;
+    max-height: 200px !important;
   }
 
   .desktop-lang-switcher {
