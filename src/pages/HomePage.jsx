@@ -348,7 +348,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               <div>
                 <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
                   <img
-                    src="/images/praying hands.jpg"
+                    src="/images/pray.jpg"
                     alt="Believers Hands Raised in Prayer"
                     style={{
                       width: '100%',
