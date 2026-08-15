@@ -12,22 +12,20 @@ export default function LanguageSwitcher({ isMobile = false }) {
         display: 'inline-flex',
         alignItems: 'center',
         background: 'rgba(58, 107, 104, 0.08)',
-        border: '1.5px solid rgba(58, 107, 104, 0.22)',
+        border: '1px solid rgba(58, 107, 104, 0.25)',
         borderRadius: '9999px',
-        padding: '3px',
+        padding: '2px 5px',
         gap: '2px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
         userSelect: 'none',
-        width: isMobile ? '100%' : 'auto',
-        justifyContent: isMobile ? 'center' : 'flex-start',
-        marginTop: isMobile ? '0.75rem' : 0
+        flexShrink: 0,
+        boxSizing: 'border-box',
+        margin: isMobile ? '0.5rem auto 0 auto' : 0
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '6px', paddingRight: '4px', color: '#3A6B68' }}>
-        <Globe size={15} />
+      <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '3px', paddingRight: '2px', color: '#3A6B68' }}>
+        <Globe size={13} />
       </div>
 
-      {/* English Option Button */}
       <button
         type="button"
         onClick={() => setLang('en')}
@@ -35,26 +33,23 @@ export default function LanguageSwitcher({ isMobile = false }) {
           border: 'none',
           outline: 'none',
           background: lang === 'en' ? '#3A6B68' : 'transparent',
-          color: lang === 'en' ? '#ffffff' : '#2C4745',
-          padding: '0.35rem 0.75rem',
+          color: lang === 'en' ? '#ffffff' : '#3A6B68',
+          padding: '0.22rem 0.55rem',
           borderRadius: '9999px',
-          fontSize: '0.78rem',
-          fontWeight: '800',
+          fontSize: '0.75rem',
+          fontWeight: '700',
           cursor: 'pointer',
-          transition: 'all 0.25s ease',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.35rem',
-          boxShadow: lang === 'en' ? '0 2px 8px rgba(58, 107, 104, 0.35)' : 'none',
-          flex: isMobile ? 1 : 'initial',
-          justifyContent: 'center'
+          transition: 'all 0.2s ease',
+          lineHeight: '1',
+          whiteSpace: 'nowrap'
         }}
         aria-label="Switch language to English"
       >
-        <span>🇺🇸</span> EN
+        EN
       </button>
 
-      {/* French Option Button */}
+      <span style={{ color: 'rgba(58, 107, 104, 0.35)', fontSize: '0.7rem', fontWeight: '500', userSelect: 'none' }}>/</span>
+
       <button
         type="button"
         onClick={() => setLang('fr')}
@@ -62,23 +57,19 @@ export default function LanguageSwitcher({ isMobile = false }) {
           border: 'none',
           outline: 'none',
           background: lang === 'fr' ? '#3A6B68' : 'transparent',
-          color: lang === 'fr' ? '#ffffff' : '#2C4745',
-          padding: '0.35rem 0.75rem',
+          color: lang === 'fr' ? '#ffffff' : '#3A6B68',
+          padding: '0.22rem 0.55rem',
           borderRadius: '9999px',
-          fontSize: '0.78rem',
-          fontWeight: '800',
+          fontSize: '0.75rem',
+          fontWeight: '700',
           cursor: 'pointer',
-          transition: 'all 0.25s ease',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.35rem',
-          boxShadow: lang === 'fr' ? '0 2px 8px rgba(58, 107, 104, 0.35)' : 'none',
-          flex: isMobile ? 1 : 'initial',
-          justifyContent: 'center'
+          transition: 'all 0.2s ease',
+          lineHeight: '1',
+          whiteSpace: 'nowrap'
         }}
         aria-label="Changer la langue en Français"
       >
-        <span>🇫🇷</span> FR
+        FR
       </button>
     </div>
   );

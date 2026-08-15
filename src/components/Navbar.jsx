@@ -55,12 +55,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
           <img
             src="/logo.png"
             alt="Arkbible Logo"
-            style={{
-              height: '250px',
-              maxHeight: '250px',
-              width: 'auto',
-              objectFit: 'contain'
-            }}
+            className="brand-logo-img"
           />
         </a>
 
@@ -466,15 +461,17 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
         </ul>
 
         {/* Header Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <LanguageSwitcher />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0 }}>
+          <div className="desktop-lang-switcher">
+            <LanguageSwitcher />
+          </div>
 
           <button
-            className="btn btn-primary"
+            className="btn btn-primary desktop-get-app-btn"
             style={{ display: mobileOpen ? 'none' : 'inline-flex' }}
             onClick={onOpenDownload}
           >
-            <Download size={18} /> {t('nav.getApp')}
+            <Download size={16} /> {t('nav.getApp')}
           </button>
 
           <button
@@ -482,7 +479,7 @@ export default function Navbar({ activeRoute, navigateTo, onOpenDownload }) {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle navigation menu"
           >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
