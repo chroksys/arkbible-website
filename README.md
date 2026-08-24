@@ -9,7 +9,7 @@
 
 ---
 
-## 📖 What the Project Does
+## What the Project Does
 
 **Arkbible** is an ad-free, non-profit Christian digital sanctuary connecting global believers to read God's Word, post prayer requests, share testimonies, and support one another across life's seasons without ads, pop-ups, or subscriptions.
 
@@ -24,7 +24,7 @@
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * **Core Framework**: [React 18](https://react.dev/)
 * **Build Tool & Dev Server**: [Vite 6](https://vitejs.dev/)
