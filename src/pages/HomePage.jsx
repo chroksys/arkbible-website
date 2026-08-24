@@ -700,7 +700,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2rem'
           }}>
-            {/* Card 1: Pray */}
+            {/* Card 1: Volunteering */}
             <div
               className="light-card"
               style={{
@@ -732,13 +732,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               <button
                 className="btn btn-outline-teal"
                 style={{ width: '100%' }}
-                onClick={() => navigateTo('/contact')}
+                onClick={() => navigateTo('/volunteer')}
               >
-                {t('buttons.contactUs')}
+                {t('buttons.becomeVolunteer')}
               </button>
             </div>
 
-            {/* Card 2: Partner */}
+            {/* Card 2: Donation */}
             <div
               className="light-card"
               style={{
@@ -771,13 +771,13 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
               <button
                 className="btn btn-primary"
                 style={{ width: '100%' }}
-                onClick={() => navigateTo('/partner')}
+                onClick={() => navigateTo('/donate')}
               >
                 {t('buttons.donateNow')}
               </button>
             </div>
 
-            {/* Card 3: Church */}
+            {/* Card 3: Partners */}
             <div
               className="light-card"
               style={{
