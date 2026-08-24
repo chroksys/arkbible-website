@@ -1,4 +1,4 @@
-# 🏛️ Arkbible Web Platform
+# Arkbible Web Platform
 
 > A Godly Community Rooted in Scripture, Prayer & Faithful Fellowship.
 
@@ -36,7 +36,7 @@
 
 ---
 
-## 🚀 How to Run It Locally
+## How to Run It Locally
 
 Follow these step-by-step instructions to run the project on your local machine:
 
@@ -66,7 +66,7 @@ Make sure you have **Node.js** (v18.0.0 or higher) and **npm** installed on your
 
 ---
 
-## 📜 Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 
@@ -79,14 +79,14 @@ In the project directory, you can run:
 
 ---
 
-## 🌐 Live Demo & Links
+## Live Demo & Links
 
 * 🔗 **Live Website**: [https://www.arkbible.app/](https://www.arkbible.app/)
 * 📦 **GitHub Repository**: [https://github.com/chroksys/arkbible-website](https://github.com/chroksys/arkbible-website)
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 arkbible-website/
