@@ -103,7 +103,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               fontSize: '1.1rem',
               fontWeight: '700',
               marginBottom: '1.2rem',
-              fontFamily: 'var(--font-serif)'
+              fontFamily: 'var(--font-heading)'
             }}>
               {t('footer.quickLinks')}
             </h4>
@@ -195,7 +195,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               fontSize: '1.1rem',
               fontWeight: '700',
               marginBottom: '1.2rem',
-              fontFamily: 'var(--font-serif)'
+              fontFamily: 'var(--font-heading)'
             }}>
               {t('modals.downloadTitle')}
             </h4>
@@ -283,7 +283,7 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
               fontSize: '1.1rem',
               fontWeight: '700',
               marginBottom: '1.2rem',
-              fontFamily: 'var(--font-serif)'
+              fontFamily: 'var(--font-heading)'
             }}>
               {t('contact.title')}
             </h4>
