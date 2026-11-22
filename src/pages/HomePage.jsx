@@ -86,36 +86,17 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
   return (
     <div>
-      {/* SECTION 1: LIGHT, MODERN, ANIMATED HERO SYNCED WITH ARKBIBLE APP */}
+      {/* SECTION 1: PHOTOGRAPHIC HERO BANNER WITH CLEAN SPLIT LAYOUT */}
       <section style={{
         position: 'relative',
-        padding: '5.5rem 0 5rem 0',
-        background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F9F8 100%)',
+        padding: '6.5rem 0 6rem 0',
+        backgroundImage: `linear-gradient(125deg, rgba(18, 42, 40, 0.86) 0%, rgba(47, 102, 98, 0.74) 55%, rgba(19, 38, 37, 0.88) 100%), url('/images/believers.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
         overflow: 'hidden',
-        borderBottom: '1px solid var(--border-light)',
+        color: '#FFFFFF',
       }}>
-        {/* Ambient Brand Glows */}
-        <div style={{
-          position: 'absolute',
-          width: '420px',
-          height: '420px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(47, 102, 98, 0.09) 0%, rgba(47, 102, 98, 0) 70%)',
-          top: '-120px',
-          left: '-120px',
-          pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute',
-          width: '440px',
-          height: '440px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(232, 157, 43, 0.12) 0%, rgba(232, 157, 43, 0) 70%)',
-          bottom: '-140px',
-          right: '-100px',
-          pointerEvents: 'none',
-        }} />
-
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{
             display: 'grid',
@@ -125,22 +106,22 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
           }}>
             {/* Left Copy */}
             <div>
-              <div className="gold-badge animate-hero" style={{ marginBottom: '1.35rem' }}>
-                <Sparkles size={14} color="var(--secondary)" /> {t('home.heroTag')}
+              <div className="hero-badge animate-hero" style={{ marginBottom: '1rem' }}>
+                {t('home.heroTag')}
               </div>
               <h1
                 className="heading-xl animate-hero-delay-1"
-                style={{ color: 'var(--text-dark)', marginBottom: '1.3rem', fontSize: 'clamp(2.4rem, 4.6vw, 3.8rem)' }}
+                style={{ color: '#FFFFFF', marginBottom: '1.3rem', fontSize: 'clamp(2.4rem, 4.6vw, 3.8rem)' }}
               >
                 {t('home.heroTitleLine1')}{' '}
-                <span className="text-gradient-green">{t('home.heroTitleLine2')}</span>
+                <span style={{ color: '#F4B956' }}>{t('home.heroTitleLine2')}</span>
               </h1>
               <p
                 className="animate-hero-delay-2"
                 style={{
                   fontSize: '1.12rem',
-                  color: 'var(--text-dark-soft)',
-                  marginBottom: '2.2rem',
+                  color: 'rgba(255, 255, 255, 0.88)',
+                  marginBottom: '2.3rem',
                   lineHeight: '1.75',
                   maxWidth: '540px',
                 }}
@@ -148,113 +129,56 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                 {t('home.heroSubtitle')}
               </p>
 
-              <div className="animate-hero-delay-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.2rem' }}>
-                <button className="btn btn-primary" onClick={onOpenDownload}>
-                  <Download size={18} /> {t('buttons.downloadFree')}
+              <div className="animate-hero-delay-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+                <button className="btn btn-secondary" onClick={onOpenDownload}>
+                  {t('buttons.downloadFree')} <ArrowRight size={17} />
                 </button>
-                <button className="btn btn-secondary" onClick={onOpenSubmitStory}>
-                  <Users size={18} /> {t('buttons.shareStory')}
+                <button className="btn btn-outline-light" onClick={onOpenSubmitStory}>
+                  {t('buttons.shareStory')}
                 </button>
-              </div>
-
-              <div className="animate-hero-delay-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.6rem', fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                  <ShieldCheck size={17} color="var(--primary)" /> {t('home.adFreeSanctuary')}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                  <Star size={17} color="var(--secondary)" /> {t('home.globalFellowship')}
-                </div>
               </div>
             </div>
 
-            {/* Right Floating App-Synced Hero Card */}
+            {/* Right Floating Verse of the Day Card (Crisp White + Ark Green & Orange) */}
             <div className="animate-float" style={{ position: 'relative' }}>
               <div style={{
-                background: 'linear-gradient(135deg, #2F6662 0%, #1D4441 100%)',
-                borderRadius: '28px',
+                background: 'rgba(255, 255, 255, 0.97)',
+                backdropFilter: 'blur(18px)',
+                borderRadius: '26px',
                 padding: '2.2rem',
-                color: '#FFFFFF',
-                boxShadow: '0 24px 55px rgba(29, 68, 65, 0.22)',
-                position: 'relative',
-                overflow: 'hidden',
+                color: 'var(--text-dark)',
+                boxShadow: '0 28px 60px rgba(10, 24, 23, 0.34)',
+                border: '1px solid rgba(255, 255, 255, 0.6)',
               }}>
-                <div style={{
-                  position: 'absolute',
-                  width: '180px',
-                  height: '180px',
-                  borderRadius: '50%',
-                  background: 'rgba(232, 157, 43, 0.16)',
-                  top: '-50px',
-                  right: '-40px',
-                }} />
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
                   <span style={{
-                    background: '#E89D2B',
-                    color: '#FFFFFF',
-                    fontSize: '0.72rem',
+                    fontSize: '0.74rem',
                     fontWeight: 700,
-                    letterSpacing: '0.08em',
-                    padding: '0.32rem 0.85rem',
-                    borderRadius: '9999px',
+                    letterSpacing: '0.12em',
+                    color: '#D0861A',
                     textTransform: 'uppercase',
                   }}>
                     Verse of the Day
                   </span>
-                  <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>
+                  <span style={{ fontSize: '0.84rem', color: 'var(--primary)', fontWeight: 700 }}>
                     Philippians 4:6–7
                   </span>
                 </div>
-                <p style={{ fontSize: '1.28rem', fontWeight: 500, lineHeight: 1.65, color: '#FFFFFF', marginBottom: '1.6rem' }}>
+                <p style={{ fontSize: '1.22rem', fontWeight: 500, lineHeight: 1.7, color: 'var(--text-dark)', marginBottom: '1.6rem' }}>
                   "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God."
                 </p>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  background: 'rgba(255,255,255,0.1)',
-                  borderRadius: '16px',
-                  padding: '0.85rem 1.1rem',
+                  borderTop: '1px solid var(--border-light)',
+                  paddingTop: '1rem',
                   fontSize: '0.84rem',
                   fontWeight: 600,
+                  color: 'var(--text-muted)',
                 }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
-                    <BookOpen size={16} color="#F4B752" /> KJV · BBE · LSG · Darby
-                  </span>
-                  <span style={{ color: '#F4B752' }}>100% Offline</span>
-                </div>
-              </div>
-
-              {/* Floating Community Affirmation Strip */}
-              <div style={{
-                marginTop: '1rem',
-                background: 'linear-gradient(135deg, #FFFDF9 0%, #FDF2DF 100%)',
-                border: '1px solid rgba(232, 157, 43, 0.35)',
-                borderRadius: '20px',
-                padding: '1.1rem 1.35rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.9rem',
-                boxShadow: 'var(--shadow-sm)',
-              }}>
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '13px',
-                  background: '#E89D2B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}>
-                  <Sparkles size={18} color="#FFFFFF" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#D0861A', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                    Daily Morning Encouragement
-                  </div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-dark)', marginTop: '0.15rem' }}>
-                    You are deeply loved, strengthened, and guided today.
-                  </div>
+                  <span>KJV · BBE · Louis Segond · Darby</span>
+                  <span style={{ color: 'var(--primary)', fontWeight: 700 }}>Offline Ready</span>
                 </div>
               </div>
             </div>
@@ -262,18 +186,18 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
         </div>
       </section>
 
-      {/* SECTION 2: CORE COMMUNITY PILLARS */}
-      <section style={{ padding: '6rem 0', background: 'var(--bg-white)' }}>
+      {/* SECTION 2: CORE COMMUNITY FOUNDATIONS (CLEAN EDITORIAL CARDS) */}
+      <section style={{ padding: '6rem 0', background: 'var(--bg-light-soft)' }}>
         <div className="container">
           <Reveal>
-            <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 4rem auto' }}>
-              <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
+            <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 3.8rem auto' }}>
+              <div className="gold-badge" style={{ marginBottom: '0.7rem' }}>
                 {t('home.pillarsBadge')}
               </div>
               <h2 className="heading-lg">
                 {t('home.pillarsTitle')}
               </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', marginTop: '0.6rem' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '0.7rem', lineHeight: 1.7 }}>
                 {t('home.pillarsSubtitle')}
               </p>
             </div>
@@ -281,269 +205,115 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+            gap: '2rem',
           }}>
-            {/* Pillar Card 1 */}
-            <div
-              className="light-card"
-              style={{
-                overflow: 'hidden',
-                borderRadius: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                transition: 'all 0.35s ease'
-              }}
-            >
-              <div>
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src="/images/community.jpg"
-                    alt="Faithful Fellowship Believers"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center center',
-                      transition: 'transform 0.5s ease'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.06)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '14px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(8px)',
+            {[
+              {
+                num: '01',
+                image: '/images/community.jpg',
+                alt: 'Faithful Fellowship Believers',
+                tag: t('home.pillar1Tag'),
+                title: t('home.pillar1Title'),
+                desc: t('home.pillar1Desc'),
+                foot: t('home.pillar1Check'),
+                accent: 'var(--primary)',
+              },
+              {
+                num: '02',
+                image: '/images/book.jpg',
+                alt: 'Open Bible Scripture Reading',
+                tag: t('home.pillar2Tag'),
+                title: t('home.pillar2Title'),
+                desc: t('home.pillar2Desc'),
+                foot: t('home.pillar2Check'),
+                accent: 'var(--secondary)',
+              },
+              {
+                num: '03',
+                image: '/images/pray.jpg',
+                alt: 'Believers in Prayer',
+                tag: t('home.pillar3Tag'),
+                title: t('home.pillar3Title'),
+                desc: t('home.pillar3Desc'),
+                foot: t('home.pillar3Check'),
+                accent: 'var(--primary)',
+              },
+            ].map((pillar, idx) => (
+              <Reveal key={pillar.num} delay={idx * 90}>
+                <article
+                  className="light-card"
+                  style={{
+                    height: '100%',
+                    overflow: 'hidden',
+                    borderRadius: '24px',
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#3A6B68',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-                  }}>
-                    <Users size={24} />
+                    flexDirection: 'column',
+                    background: '#FFFFFF',
+                    border: '1px solid var(--border-light)',
+                  }}
+                >
+                  <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
+                    <img
+                      src={pillar.image}
+                      alt={pillar.alt}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                    />
                   </div>
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    left: '1rem',
-                    background: 'rgba(14, 23, 22, 0.8)',
-                    backdropFilter: 'blur(6px)',
-                    color: '#FFFFFF',
-                    padding: '0.35rem 0.9rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.78rem',
-                    fontWeight: '700',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase'
-                  }}>
-                    {t('home.pillar1Tag')}
-                  </div>
-                </div>
 
-                <div style={{ padding: '2rem' }}>
-                  <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    {t('home.pillar1Title')}
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    {t('home.pillar1Desc')}
-                  </p>
-                </div>
-              </div>
-              <div style={{ padding: '0 2rem 2rem 2rem' }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  fontSize: '0.88rem',
-                  fontWeight: '700',
-                  color: '#3A6B68',
-                  borderTop: '1px solid var(--border-light)',
-                  paddingTop: '1rem'
-                }}>
-                  <Check size={16} /> {t('home.pillar1Check')}
-                </div>
-              </div>
-            </div>
+                  <div style={{ padding: '1.9rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+                        <span style={{
+                          fontSize: '0.74rem',
+                          fontWeight: 800,
+                          color: pillar.accent,
+                          letterSpacing: '0.08em',
+                        }}>
+                          {pillar.num}
+                        </span>
+                        <span style={{ width: '18px', height: '2px', background: pillar.accent, borderRadius: '2px' }} />
+                        <span style={{
+                          fontSize: '0.74rem',
+                          fontWeight: 700,
+                          color: 'var(--text-muted)',
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase',
+                        }}>
+                          {pillar.tag}
+                        </span>
+                      </div>
 
-            {/* Pillar Card 2 */}
-            <div
-              className="light-card"
-              style={{
-                overflow: 'hidden',
-                borderRadius: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                transition: 'all 0.35s ease'
-              }}
-            >
-              <div>
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src="/images/book.jpg"
-                    alt="Open Bible Scripture Reading"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center center',
-                      transition: 'transform 0.5s ease'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.06)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '14px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(8px)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#3A6B68',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-                  }}>
-                    <BookOpen size={24} />
-                  </div>
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    left: '1rem',
-                    background: 'rgba(14, 23, 22, 0.8)',
-                    backdropFilter: 'blur(6px)',
-                    color: '#FFFFFF',
-                    padding: '0.35rem 0.9rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.78rem',
-                    fontWeight: '700',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase'
-                  }}>
-                    {t('home.pillar2Tag')}
-                  </div>
-                </div>
+                      <h3 className="heading-md" style={{ marginBottom: '0.75rem', fontSize: '1.35rem', color: 'var(--text-dark)' }}>
+                        {pillar.title}
+                      </h3>
+                      <p style={{ color: 'var(--text-dark-soft)', fontSize: '0.95rem', lineHeight: '1.7' }}>
+                        {pillar.desc}
+                      </p>
+                    </div>
 
-                <div style={{ padding: '2rem' }}>
-                  <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    {t('home.pillar2Title')}
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    {t('home.pillar2Desc')}
-                  </p>
-                </div>
-              </div>
-              <div style={{ padding: '0 2rem 2rem 2rem' }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  fontSize: '0.88rem',
-                  fontWeight: '700',
-                  color: '#3A6B68',
-                  borderTop: '1px solid var(--border-light)',
-                  paddingTop: '1rem'
-                }}>
-                  <Check size={16} /> {t('home.pillar2Check')}
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar Card 3 */}
-            <div
-              className="light-card"
-              style={{
-                overflow: 'hidden',
-                borderRadius: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                transition: 'all 0.35s ease'
-              }}
-            >
-              <div>
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src="/images/pray.jpg"
-                    alt="Believers Hands Raised in Prayer"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center center',
-                      transition: 'transform 0.5s ease'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.06)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '14px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(8px)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#3A6B68',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-                  }}>
-                    <HeartHandshake size={24} />
+                    <div style={{
+                      marginTop: '1.5rem',
+                      paddingTop: '1rem',
+                      borderTop: '1px solid var(--border-light)',
+                      fontSize: '0.84rem',
+                      fontWeight: 700,
+                      color: pillar.accent,
+                    }}>
+                      {pillar.foot}
+                    </div>
                   </div>
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    left: '1rem',
-                    background: 'rgba(14, 23, 22, 0.8)',
-                    backdropFilter: 'blur(6px)',
-                    color: '#FFFFFF',
-                    padding: '0.35rem 0.9rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.78rem',
-                    fontWeight: '700',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase'
-                  }}>
-                    {t('home.pillar3Tag')}
-                  </div>
-                </div>
-
-                <div style={{ padding: '2rem' }}>
-                  <h3 className="heading-md" style={{ marginBottom: '0.8rem', fontSize: '1.45rem' }}>
-                    {t('home.pillar3Title')}
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
-                    {t('home.pillar3Desc')}
-                  </p>
-                </div>
-              </div>
-              <div style={{ padding: '0 2rem 2rem 2rem' }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  fontSize: '0.88rem',
-                  fontWeight: '700',
-                  color: '#3A6B68',
-                  borderTop: '1px solid var(--border-light)',
-                  paddingTop: '1rem'
-                }}>
-                  <Check size={16} /> {t('home.pillar3Check')}
-                </div>
-              </div>
-            </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -704,13 +474,11 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   alignItems: 'center',
                   justifyContent: 'space-between'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={13} fill="#3A6B68" color="#3A6B68" />
-                    ))}
-                  </div>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary)' }}>
+                    {item.scripture || 'Scripture Reflection'}
+                  </span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    {item.date || 'Verified Story'}
+                    {item.date || 'Community Story'}
                   </span>
                 </div>
               </div>

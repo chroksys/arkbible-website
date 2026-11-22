@@ -408,55 +408,54 @@ video {
   padding: 5rem 0;
 }
 
-/* HERO BADGE (ARK ORANGE PILL) */
+/* CLEAN EDITORIAL EYEBROW LABELS (REPLACING CLUTTERED PILL BADGES) */
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.2rem;
-  border-radius: var(--radius-full);
-  background: rgba(232, 157, 43, 0.2);
-  border: 1.5px solid rgba(232, 157, 43, 0.65);
-  color: #FFE4B5;
-  font-size: 0.8rem;
+  display: inline-block;
+  color: #F4B956;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
-  max-width: 100%;
-  box-sizing: border-box;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
-/* STANDARD BADGES ON LIGHT BACKGROUNDS */
 .gold-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 1.05rem;
-  border-radius: var(--radius-full);
-  background: var(--secondary-subtle);
-  border: 1px solid rgba(232, 157, 43, 0.35);
+  display: inline-block;
   color: var(--secondary-dark);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 .teal-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 1.05rem;
-  border-radius: var(--radius-full);
-  background: var(--primary-subtle);
-  border: 1px solid rgba(47, 102, 98, 0.25);
+  display: inline-block;
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.hero-badge svg,
+.gold-badge svg,
+.teal-badge svg {
+  display: none;
+}
+
+/* Refine all Lucide icons globally to thin, modern strokes */
+svg.lucide {
+  stroke-width: 1.65;
 }
 
 /* Cards & Effects */

@@ -48,8 +48,8 @@ export default function Footer({ navigateTo, onOpenDownload, onOpenPrivacy, onOp
             }}>
               {t('footer.tagline')}
             </p>
-            <div className="gold-badge" style={{ display: 'inline-flex', fontSize: '0.75rem', padding: '0.35rem 0.9rem' }}>
-              <Heart size={13} color="var(--secondary)" /> {t('home.globalFellowship')}
+            <div className="gold-badge">
+              {t('home.globalFellowship')}
             </div>
           </div>
 
