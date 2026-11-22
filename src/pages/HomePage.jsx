@@ -5,6 +5,7 @@ import {
   Check, MapPin, ChevronLeft, ChevronRight, Quote
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import Reveal from '../components/Reveal';
 
 export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory, customStories = [] }) {
   const { t } = useLanguage();
@@ -19,8 +20,8 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
       tag: 'Mutual Prayer Support',
       scripture: 'Philippians 4:6-7',
       date: '2 days ago',
-      avatarColor: 'linear-gradient(135deg, #3A6B68, #244846)',
-      story: 'During a grueling medical diagnosis last autumn, the Arkbible community prayed with me every day. Having God’s promises right in my pocket without ads gave me deep peace.'
+      avatarColor: 'linear-gradient(135deg, #2F6662, #1D4441)',
+      story: 'During a difficult season last autumn, the ArkBible community prayed with me every day. Having God’s promises right in my pocket gave me deep peace.'
     },
     {
       id: 2,
@@ -29,8 +30,8 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
       tag: 'Faithful Fellowship',
       scripture: 'Hebrews 10:24-25',
       date: '1 week ago',
-      avatarColor: 'linear-gradient(135deg, #4D8582, #3A6B68)',
-      story: 'Our church youth fellowship uses Arkbible’s sermon note structurer and scripture reflection tools. It has connected our young believers across different cities effortlessly.'
+      avatarColor: 'linear-gradient(135deg, #E89D2B, #D0861A)',
+      story: 'Our church youth fellowship uses ArkBible’s sermon notes and scripture reflection tools. It has connected our young believers across different cities effortlessly.'
     },
     {
       id: 3,
@@ -39,8 +40,8 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
       tag: 'Daily Scripture Grounding',
       scripture: 'Psalm 119:105',
       date: '3 weeks ago',
-      avatarColor: 'linear-gradient(135deg, #3A6B68, #1C3835)',
-      story: 'Finding a 100% ad-free Bible app in my native translation was an answer to prayer. The quiet sanctuary design helps me start every morning anchored in truth.'
+      avatarColor: 'linear-gradient(135deg, #2F6662, #1D4441)',
+      story: 'Finding a peaceful Bible app in my own language was an answer to prayer. The calm design helps me start every morning anchored in truth.'
     },
     {
       id: 4,
@@ -85,54 +86,176 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
 
   return (
     <div>
-      {/* SECTION 1: HERO BANNER */}
+      {/* SECTION 1: LIGHT, MODERN, ANIMATED HERO SYNCED WITH ARKBIBLE APP */}
       <section style={{
         position: 'relative',
-        padding: '7.5rem 0 6rem 0',
-        background: `linear-gradient(to bottom, rgba(14, 23, 22, 0.72), rgba(14, 23, 22, 0.92)), url('/images/good.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        color: '#FFFFFF'
+        padding: '5.5rem 0 5rem 0',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F9F8 100%)',
+        overflow: 'hidden',
+        borderBottom: '1px solid var(--border-light)',
       }}>
-        <div className="container hero-content">
-          <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
-            <div className="hero-badge" style={{ marginBottom: '1.4rem' }}>
-              <Sparkles size={16} /> {t('home.heroTag')}
-            </div>
-            <h1 className="heading-xl" style={{ color: '#ffffff', marginBottom: '1.4rem' }}>
-              {t('home.heroTitleLine1')} <span className="text-gradient-green">{t('home.heroTitleLine2')}</span>
-            </h1>
-            <p style={{
-              fontSize: '1.2rem',
-              color: 'rgba(255, 255, 255, 0.9)',
-              marginBottom: '2.5rem',
-              lineHeight: '1.75'
-            }}>
-              {t('home.heroSubtitle')}
-            </p>
+        {/* Ambient Brand Glows */}
+        <div style={{
+          position: 'absolute',
+          width: '420px',
+          height: '420px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(47, 102, 98, 0.09) 0%, rgba(47, 102, 98, 0) 70%)',
+          top: '-120px',
+          left: '-120px',
+          pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute',
+          width: '440px',
+          height: '440px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(232, 157, 43, 0.12) 0%, rgba(232, 157, 43, 0) 70%)',
+          bottom: '-140px',
+          right: '-100px',
+          pointerEvents: 'none',
+        }} />
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', marginBottom: '2.8rem' }}>
-              <button
-                className="btn btn-primary"
-                onClick={onOpenSubmitStory}
-              >
-                <Users size={18} /> {t('buttons.shareStory')}
-              </button>
-              <button
-                className="btn btn-outline-light"
-                onClick={onOpenDownload}
-              >
-                <Download size={18} /> {t('buttons.downloadFree')}
-              </button>
-            </div>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', fontSize: '0.94rem', color: 'rgba(255, 255, 255, 0.9)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <ShieldCheck size={18} color="#528986" /> {t('home.adFreeSanctuary')}
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '3.5rem',
+            alignItems: 'center',
+          }}>
+            {/* Left Copy */}
+            <div>
+              <div className="gold-badge animate-hero" style={{ marginBottom: '1.35rem' }}>
+                <Sparkles size={14} color="var(--secondary)" /> {t('home.heroTag')}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <Star size={18} color="#528986" /> {t('home.globalFellowship')}
+              <h1
+                className="heading-xl animate-hero-delay-1"
+                style={{ color: 'var(--text-dark)', marginBottom: '1.3rem', fontSize: 'clamp(2.4rem, 4.6vw, 3.8rem)' }}
+              >
+                {t('home.heroTitleLine1')}{' '}
+                <span className="text-gradient-green">{t('home.heroTitleLine2')}</span>
+              </h1>
+              <p
+                className="animate-hero-delay-2"
+                style={{
+                  fontSize: '1.12rem',
+                  color: 'var(--text-dark-soft)',
+                  marginBottom: '2.2rem',
+                  lineHeight: '1.75',
+                  maxWidth: '540px',
+                }}
+              >
+                {t('home.heroSubtitle')}
+              </p>
+
+              <div className="animate-hero-delay-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.2rem' }}>
+                <button className="btn btn-primary" onClick={onOpenDownload}>
+                  <Download size={18} /> {t('buttons.downloadFree')}
+                </button>
+                <button className="btn btn-secondary" onClick={onOpenSubmitStory}>
+                  <Users size={18} /> {t('buttons.shareStory')}
+                </button>
+              </div>
+
+              <div className="animate-hero-delay-2" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.6rem', fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <ShieldCheck size={17} color="var(--primary)" /> {t('home.adFreeSanctuary')}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <Star size={17} color="var(--secondary)" /> {t('home.globalFellowship')}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Floating App-Synced Hero Card */}
+            <div className="animate-float" style={{ position: 'relative' }}>
+              <div style={{
+                background: 'linear-gradient(135deg, #2F6662 0%, #1D4441 100%)',
+                borderRadius: '28px',
+                padding: '2.2rem',
+                color: '#FFFFFF',
+                boxShadow: '0 24px 55px rgba(29, 68, 65, 0.22)',
+                position: 'relative',
+                overflow: 'hidden',
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  width: '180px',
+                  height: '180px',
+                  borderRadius: '50%',
+                  background: 'rgba(232, 157, 43, 0.16)',
+                  top: '-50px',
+                  right: '-40px',
+                }} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                  <span style={{
+                    background: '#E89D2B',
+                    color: '#FFFFFF',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    padding: '0.32rem 0.85rem',
+                    borderRadius: '9999px',
+                    textTransform: 'uppercase',
+                  }}>
+                    Verse of the Day
+                  </span>
+                  <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>
+                    Philippians 4:6–7
+                  </span>
+                </div>
+                <p style={{ fontSize: '1.28rem', fontWeight: 500, lineHeight: 1.65, color: '#FFFFFF', marginBottom: '1.6rem' }}>
+                  "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God."
+                </p>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  background: 'rgba(255,255,255,0.1)',
+                  borderRadius: '16px',
+                  padding: '0.85rem 1.1rem',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <BookOpen size={16} color="#F4B752" /> KJV · BBE · LSG · Darby
+                  </span>
+                  <span style={{ color: '#F4B752' }}>100% Offline</span>
+                </div>
+              </div>
+
+              {/* Floating Community Affirmation Strip */}
+              <div style={{
+                marginTop: '1rem',
+                background: 'linear-gradient(135deg, #FFFDF9 0%, #FDF2DF 100%)',
+                border: '1px solid rgba(232, 157, 43, 0.35)',
+                borderRadius: '20px',
+                padding: '1.1rem 1.35rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.9rem',
+                boxShadow: 'var(--shadow-sm)',
+              }}>
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '13px',
+                  background: '#E89D2B',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}>
+                  <Sparkles size={18} color="#FFFFFF" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#D0861A', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                    Daily Morning Encouragement
+                  </div>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-dark)', marginTop: '0.15rem' }}>
+                    You are deeply loved, strengthened, and guided today.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -142,17 +265,19 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
       {/* SECTION 2: CORE COMMUNITY PILLARS */}
       <section style={{ padding: '6rem 0', background: 'var(--bg-white)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 4rem auto' }}>
-            <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
-              {t('home.pillarsBadge')}
+          <Reveal>
+            <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 4rem auto' }}>
+              <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
+                {t('home.pillarsBadge')}
+              </div>
+              <h2 className="heading-lg">
+                {t('home.pillarsTitle')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', marginTop: '0.6rem' }}>
+                {t('home.pillarsSubtitle')}
+              </p>
             </div>
-            <h2 className="heading-lg">
-              {t('home.pillarsTitle')}
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', marginTop: '0.6rem' }}>
-              {t('home.pillarsSubtitle')}
-            </p>
-          </div>
+          </Reveal>
 
           <div style={{
             display: 'grid',
@@ -652,7 +777,7 @@ export default function HomePage({ navigateTo, onOpenDownload, onOpenSubmitStory
                   <div style={{ background: 'var(--primary-subtle)', padding: '0.35rem', borderRadius: '50%', color: '#3A6B68' }}>
                     <Check size={16} />
                   </div>
-                  {t('product.feat4Title')} (0% hallucination)
+                  {t('product.feat4Title')}
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontWeight: '600', color: 'var(--text-dark)' }}>
                   <div style={{ background: 'var(--primary-subtle)', padding: '0.35rem', borderRadius: '50%', color: '#3A6B68' }}>

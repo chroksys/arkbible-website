@@ -27,7 +27,7 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
       } else if (amt >= 25) {
         return "Maintains vector RAG search & cloud server infrastructure for 500 app users every month.";
       } else {
-        return "Sponsors ad-free scripture access and daily morning devotions for 200 believers every month.";
+        return "Helps provide free Scripture access and daily encouragement for 200 believers every month.";
       }
     } else {
       if (amt >= 250) {
@@ -449,8 +449,8 @@ export default function DonatePage({ navigateTo, onSubmitToast }) {
                     Pillar 03
                   </span>
                 </div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>AI RAG & Safety</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-dark-soft)', lineHeight: '1.6' }}>0% hallucination vector compute and 4-layer community moderation guardrails.</p>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>Safe Community Care</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-dark-soft)', lineHeight: '1.6' }}>Thoughtful moderation and privacy protection to keep every prayer and testimony space welcoming.</p>
               </div>
               <div style={{ marginTop: '1.6rem' }}>
                 <div style={{ height: '4px', background: '#00838F', borderRadius: '9999px' }} />

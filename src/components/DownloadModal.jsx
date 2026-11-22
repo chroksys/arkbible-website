@@ -15,13 +15,13 @@ export default function DownloadModal({ isOpen, onClose }) {
 
         <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
           <div className="gold-badge" style={{ marginBottom: '0.8rem', display: 'inline-flex' }}>
-            <ShieldCheck size={16} /> 100% Free & Ad-Free Sanctuary
+            <ShieldCheck size={16} /> Free Christian Companion
           </div>
           <h2 className="heading-md" style={{ color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-            Get the Arkbible Mobile App
+            Get the ArkBible Mobile App
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-            Available on iOS and Android. Pre-bundled multi-translation Bibles, 100% offline text-to-speech audio, and daily vector encouragement.
+            Available on iOS and Android. Offline multi-translation Bibles, spoken audio readings, prayer journaling, and daily encouragement.
           </p>
         </div>
 

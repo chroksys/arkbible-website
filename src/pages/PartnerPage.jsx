@@ -40,7 +40,7 @@ export default function PartnerPage({ navigateTo, onSubmitToast }) {
     },
     {
       title: "Youth Fellowship Integration",
-      desc: "Equip your youth ministry with ad-free offline digital Bibles and zero-hallucination verse search for small group studies.",
+      desc: "Equip your youth ministry with offline digital Bibles, guided verse study, and small-group reflection tools.",
       icon: <Zap size={24} color="#FFFFFF" />,
       color: "#2E7D32"
     },

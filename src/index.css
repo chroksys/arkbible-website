@@ -1,43 +1,46 @@
 /* ==========================================================================
-   ARKBIBLE WEBSITE DESIGN SYSTEM - GREEN ACCENTS & CONTAINER ARCHITECTURE
+   ARKBIBLE WEBSITE DESIGN SYSTEM — SYNCED WITH ARKBIBLE APP
+   Ark Green (#2F6662) · Ark Orange (#E89D2B) · Crisp White (#FFFFFF)
    ========================================================================== */
 
 :root {
-  /* Core Palette */
-  --primary: #3A6B68;
-  --primary-dark: #244846;
-  --primary-light: #4D8582;
-  --primary-subtle: rgba(58, 107, 104, 0.1);
-  --primary-glow: rgba(58, 107, 104, 0.25);
+  /* Core Palette (Synced with App) */
+  --primary: #2F6662;
+  --primary-dark: #1D4441;
+  --primary-light: #4A8782;
+  --primary-subtle: #E6F2F0;
+  --primary-glow: rgba(47, 102, 98, 0.22);
 
-  --secondary: #3A6B68;
-  --secondary-dark: #244846;
-  --secondary-subtle: rgba(58, 107, 104, 0.12);
+  --secondary: #E89D2B;
+  --secondary-dark: #D0861A;
+  --secondary-subtle: #FDF3E3;
+  --secondary-glow: rgba(232, 157, 43, 0.28);
 
   --bg-white: #FFFFFF;
-  --bg-light-soft: #F9F8F4;
-  --bg-parchment: #F4F2EB;
-  --bg-teal-light: #F0F6F5;
+  --bg-light-soft: #F7F9F8;
+  --bg-parchment: #EFF4F3;
+  --bg-teal-light: #EFF6F5;
 
-  --text-dark: #12211F;
-  --text-dark-soft: #2D3E3B;
-  --text-muted: #576B68;
+  --text-dark: #132625;
+  --text-dark-soft: #475D5B;
+  --text-muted: #7B8F8D;
   --text-light-muted: #A3B5B2;
 
-  --border-light: #E4E0D6;
-  --border-teal: rgba(58, 107, 104, 0.25);
+  --border-light: #E3ECEA;
+  --border-teal: rgba(47, 102, 98, 0.22);
 
-  --shadow-sm: 0 4px 15px rgba(58, 107, 104, 0.06);
-  --shadow-md: 0 10px 30px rgba(58, 107, 104, 0.12);
-  --shadow-lg: 0 20px 45px rgba(58, 107, 104, 0.18);
-  --shadow-green: 0 8px 25px rgba(58, 107, 104, 0.35);
+  --shadow-sm: 0 4px 16px rgba(22, 51, 49, 0.05);
+  --shadow-md: 0 12px 32px rgba(22, 51, 49, 0.1);
+  --shadow-lg: 0 24px 50px rgba(22, 51, 49, 0.14);
+  --shadow-green: 0 10px 24px rgba(47, 102, 98, 0.28);
+  --shadow-orange: 0 10px 24px rgba(232, 157, 43, 0.32);
 
-  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  --radius-sm: 8px;
+  --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
@@ -182,17 +185,29 @@ video {
   color: var(--text-dark);
 }
 
-/* Keywords & Highlights in Green */
-.text-green,
-.text-gold {
-  color: #3A6B68;
+/* Keywords & Highlights in Ark Green & Ark Orange */
+.text-green {
+  color: var(--primary);
   font-weight: 700;
 }
 
-.text-gradient-green,
-.text-gradient-gold {
-  color: #528986;
-  background: linear-gradient(135deg, #74AEA9 0%, #4D8582 100%);
+.text-gold,
+.text-orange {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.text-gradient-green {
+  color: var(--primary);
+  background: linear-gradient(135deg, #2F6662 0%, #4A8782 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold,
+.text-gradient-orange {
+  color: var(--secondary);
+  background: linear-gradient(135deg, #E89D2B 0%, #F4B956 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -206,78 +221,83 @@ video {
   box-sizing: border-box;
 }
 
-/* BUTTONS IN GREEN (#3A6B68) */
+/* BUTTONS IN ARK GREEN & ARK ORANGE */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.8rem;
+  gap: 0.55rem;
+  padding: 0.85rem 1.85rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-full);
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
   white-space: nowrap;
 }
 
+.btn:active {
+  transform: scale(0.98);
+}
+
 .btn-primary {
-  background: #3A6B68;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 18px rgba(58, 107, 104, 0.35);
+  box-shadow: var(--shadow-green);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(58, 107, 104, 0.5);
-  background: #244846;
+  box-shadow: 0 14px 28px rgba(47, 102, 98, 0.36);
 }
 
-.btn-secondary {
-  background: #3A6B68;
+.btn-secondary,
+.btn-orange {
+  background: linear-gradient(135deg, #E89D2B 0%, #D98B1B 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(58, 107, 104, 0.3);
+  box-shadow: var(--shadow-orange);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-orange:hover {
   transform: translateY(-2px);
-  background: #244846;
-  box-shadow: 0 8px 22px rgba(58, 107, 104, 0.45);
+  box-shadow: 0 14px 28px rgba(232, 157, 43, 0.42);
 }
 
 .btn-outline-gold,
 .btn-outline-teal {
-  border: 1.5px solid #3A6B68;
-  color: #3A6B68;
-  background: rgba(58, 107, 104, 0.08);
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  background: var(--primary-subtle);
 }
 
 .btn-outline-gold:hover,
 .btn-outline-teal:hover {
-  background: #3A6B68;
+  background: var(--primary);
   color: #FFFFFF;
   transform: translateY(-2px);
 }
 
 .btn-outline-light {
-  border: 1.5px solid #3A6B68;
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
   color: #FFFFFF;
-  background: #3A6B68;
-  box-shadow: 0 4px 16px rgba(58, 107, 104, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
 }
 
 .btn-outline-light:hover {
-  border-color: #244846;
-  background: #244846;
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
-/* Navbar - Sleek Height (80px) */
+/* Navbar - Clean Frosted White */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border-light);
   transition: all var(--transition-normal);
 }
@@ -286,38 +306,38 @@ video {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 76px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
+  overflow: visible;
 }
 
 .brand-logo img,
 .brand-logo-img {
-  height: 200px;
-  max-height: 250px;
+  height: 118px;
+  max-height: 118px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(58, 107, 104, 0.12));
   transition: transform var(--transition-fast);
 }
 
 .brand-logo img:hover,
 .brand-logo-img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 2.1rem;
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-dark-soft);
   transition: color var(--transition-fast);
@@ -327,17 +347,17 @@ video {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #3A6B68;
+  color: var(--primary);
 }
 
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 3px;
-  background: #3A6B68;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 3px;
 }
 
@@ -388,7 +408,7 @@ video {
   padding: 5rem 0;
 }
 
-/* HERO BADGE (HIGH CONTRAST & CLEARLY READABLE ON DARK HERO SECTIONS) */
+/* HERO BADGE (ARK ORANGE PILL) */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -396,33 +416,46 @@ video {
   gap: 0.5rem;
   padding: 0.45rem 1.2rem;
   border-radius: var(--radius-full);
-  background: rgba(58, 107, 104, 0.45);
-  border: 1.5px solid #4D8582;
-  color: #FFFFFF;
-  font-size: 0.88rem;
+  background: rgba(232, 157, 43, 0.2);
+  border: 1.5px solid rgba(232, 157, 43, 0.65);
+  color: #FFE4B5;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 100%;
   box-sizing: border-box;
 }
 
 /* STANDARD BADGES ON LIGHT BACKGROUNDS */
-.gold-badge,
+.gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1.05rem;
+  border-radius: var(--radius-full);
+  background: var(--secondary-subtle);
+  border: 1px solid rgba(232, 157, 43, 0.35);
+  color: var(--secondary-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .teal-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.4rem 1.1rem;
+  padding: 0.4rem 1.05rem;
   border-radius: var(--radius-full);
-  background: rgba(58, 107, 104, 0.1);
-  border: 1px solid rgba(58, 107, 104, 0.3);
-  color: #3A6B68;
-  font-size: 0.85rem;
+  background: var(--primary-subtle);
+  border: 1px solid rgba(47, 102, 98, 0.25);
+  color: var(--primary);
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -515,6 +548,42 @@ video {
   }
 }
 
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-delay-1 {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+.animate-hero-delay-2 {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 240ms both;
+}
+
+.animate-float {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
 /* Form Styling */
 .form-group {
   margin-bottom: 1.25rem;
@@ -569,7 +638,7 @@ video {
   left: 0;
   width: 5px;
   height: 100%;
-  background: #3A6B68;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
   transition: background var(--transition-normal);
 }
 

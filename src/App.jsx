@@ -134,6 +134,26 @@ export default function App() {
               onSubmitToast={showToast}
             />
           )}
+
+          {activeRoute === '/privacy' && (
+            <section style={{ padding: '5rem 0', background: 'var(--bg-light-soft)' }}>
+              <div className="container" style={{ maxWidth: '760px' }}>
+                <div className="light-card" style={{ padding: '2.5rem' }}>
+                  <span className="teal-badge" style={{ marginBottom: '1rem' }}>Privacy Policy</span>
+                  <h1 className="heading-lg" style={{ marginBottom: '1.2rem' }}>Your Privacy & Trust</h1>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', color: 'var(--text-dark-soft)', lineHeight: 1.75 }}>
+                    <p>At <strong>ArkBible</strong>, your prayer life and personal Scripture study are sacred between you and God.</p>
+                    <h3 style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>1. We Never Sell Your Data</h3>
+                    <p>We do not sell personal information, reading history, or prayer journal notes to third parties.</p>
+                    <h3 style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>2. Offline Reading & Secure Sync</h3>
+                    <p>All bundled Bibles work completely offline. If you create an account, your highlights, notes, and prayers sync securely, and you may permanently delete your account anytime inside the app's Profile settings.</p>
+                    <h3 style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>3. Contact Us</h3>
+                    <p>Questions about privacy? Reach out anytime at <a href="mailto:info@arkbible.app" style={{ color: 'var(--primary)', fontWeight: 700 }}>info@arkbible.app</a>.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
         </main>
 
         {/* Universal Footer */}

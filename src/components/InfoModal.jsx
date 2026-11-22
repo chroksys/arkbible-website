@@ -1,9 +1,7 @@
 import React from 'react';
-import { X, Shield, Lock, FileText } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { X, Lock, FileText } from 'lucide-react';
 
 export default function InfoModal({ isOpen, type, onClose }) {
-  const { t } = useLanguage();
   if (!isOpen) return null;
 
   const isPrivacy = type === 'privacy';
@@ -11,41 +9,52 @@ export default function InfoModal({ isOpen, type, onClose }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" style={{ maxWidth: '680px' }} onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={24} />
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.2rem', paddingTop: '0.5rem' }}>
-          {isPrivacy ? <Lock color="var(--primary)" size={28} /> : <FileText color="var(--primary)" size={28} />}
+          <div style={{
+            width: '44px',
+            height: '44px',
+            borderRadius: '14px',
+            background: isPrivacy ? 'var(--primary-subtle)' : 'var(--secondary-subtle)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}>
+            {isPrivacy ? <Lock color="var(--primary)" size={22} /> : <FileText color="var(--secondary)" size={22} />}
+          </div>
           <h3 className="heading-md" style={{ color: 'var(--text-dark)' }}>
-            {isPrivacy ? 'Privacy & Data Protection Guarantee' : 'Terms of Service & Community Covenant'}
+            {isPrivacy ? 'Privacy & Data Protection' : 'Terms of Service & Community Covenant'}
           </h3>
         </div>
 
-        <div style={{ fontSize: '0.92rem', color: 'var(--text-dark-soft)', lineHeight: '1.7', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div style={{ fontSize: '0.94rem', color: 'var(--text-dark-soft)', lineHeight: '1.75', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {isPrivacy ? (
             <>
               <p>
-                At <strong>Arkbible</strong>, we believe that your private prayer life and personal scripture study are sacred between you and God.
+                At <strong>ArkBible</strong>, we believe your prayer life and personal time in Scripture are sacred between you and God.
               </p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>1. Zero Third-Party Advertising</h4>
-              <p>We do not run ad networks, tracking pixels, or commercial sponsorships. Your reading habits are never monetized.</p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>2. 100% Local & Offline Data</h4>
-              <p>Your bookmarks, prayer journal entries, and reading progress are stored locally on your device. We do not upload your private prayer journals to central servers.</p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>3. Vector RAG Search Processing</h4>
-              <p>When using emotion verse search, inputs are converted into mathematical embedding vectors solely to retrieve relevant scriptures with 0% AI hallucination.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>1. Your Data Is Never Sold</h4>
+              <p>We never sell your personal information, reading history, or prayer notes to third parties. Your spiritual journey stays private.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>2. Secure Cloud Sync & Offline Access</h4>
+              <p>Bible reading works completely offline. When you sign in, your highlights, notes, and saved sermons are securely synced so you can access them across your devices, and you can delete your account anytime from Profile settings.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>3. Thoughtful Reflection & Verse Search</h4>
+              <p>When you search by topic or emotion in the Reflect tab, your prompt is used solely to surface comforting, relevant Bible passages and is never used for commercial profiling.</p>
             </>
           ) : (
             <>
               <p>
-                By joining the Arkbible community and utilizing our companion mobile app, you agree to walk in fellowship according to Christian unity and mutual respect.
+                By joining the ArkBible community and using our mobile app, you agree to walk in fellowship with kindness, encouragement, and mutual respect.
               </p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>1. Safe Community Standards</h4>
-              <p>All shared testimonies and community prayer posts undergo 4-layer automated and human moderation to preserve an encouraging, godly sanctuary.</p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>2. Free & Open Access</h4>
-              <p>Arkbible provides public-domain Bible translations (KJV, WEB, Louis Segond, Reina-Valera) freely without hidden paywalls or subscription traps.</p>
-              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>3. Financial Stewardship</h4>
-              <p>All voluntary financial gifts and partnerships directly support app infrastructure, multi-language translations, and outreach programs.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>1. Safe & Encouraging Community</h4>
+              <p>All public testimonies and community posts are moderated to keep ArkBible a welcoming, uplifting space for believers of all ages.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>2. Open Access to Scripture</h4>
+              <p>ArkBible provides bundled Bible translations (KJV, BBE, Louis Segond, and Darby) freely for personal devotion, study, and small groups.</p>
+              <h4 style={{ color: 'var(--primary-dark)', fontWeight: '700' }}>3. Ministry Stewardship</h4>
+              <p>Voluntary gifts and church partnerships directly support app development, community care, and global Scripture access.</p>
             </>
           )}
         </div>

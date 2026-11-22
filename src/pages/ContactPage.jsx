@@ -33,20 +33,20 @@ export default function ContactPage({ onSubmitToast }) {
 
   const faqs = [
     {
-      q: "Is Arkbible really 100% free and ad-free?",
-      a: "Yes! Arkbible is built as a non-profit digital sanctuary. There are zero third-party ads, zero tracking scripts, and no forced monthly subscriptions."
+      q: "Is ArkBible free to use?",
+      a: "Yes! ArkBible is a non-profit Christian community app—completely free for every believer to download and use."
     },
     {
       q: "How does the app work offline without internet?",
-      a: "All Bible translations (KJV, WEB, Louis Segond, Reina-Valera) and vector embedding models are pre-bundled directly inside the mobile app package, allowing 100% offline reading and search."
+      a: "All bundled Bible translations (KJV, BBE, Louis Segond, and Darby) are built directly into the mobile app, allowing smooth offline reading and search anytime."
     },
     {
       q: "How can my local church or ministry get involved?",
-      a: "Pastors and church leaders can request our Church Partnership Packet on the Partner page or select 'Church Partnership' in the contact dropdown to receive custom sermon note guides."
+      a: "Pastors and church leaders can reach out through our Partner page or select 'Church Partnership' in the contact form to collaborate with us."
     },
     {
-      q: "How do you ensure 0% AI hallucination in scripture search?",
-      a: "Our vector search engine uses Supabase pgvector to mathematically map your feelings to exact historical Bible verses. It retrieves unaltered scripture text rather than generating new synthetic text."
+      q: "How are community testimonies and prayer requests kept safe?",
+      a: "Every shared testimony is reviewed to keep ArkBible a respectful, encouraging, and Christ-centered space for believers of all ages."
     }
   ];
 

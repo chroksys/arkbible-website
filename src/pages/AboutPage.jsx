@@ -37,7 +37,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
       number: '01',
       phase: 'Phase 1 • Active Standard',
       title: '100% Offline Multi-Translation & RAG Engine',
-      description: 'Established pre-bundled KJV, WEB, Louis Segond, and Reina-Valera translations with 0% AI hallucination semantic verse search.',
+      description: 'Bundled offline KJV, BBE, Louis Segond, and Darby Bible translations with guided verse reflections and study tools.',
       status: 'Current Sanctuary',
       isCurrent: true
     },
@@ -161,7 +161,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
               }}>
                 <ShieldCheck size={32} color="var(--primary)" />
                 <div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-dark)' }}>100% Ad-Free Guarantee</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-dark)' }}>Free & Distraction-Free</div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>0 Commercial Distractions Ever</div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
                 Uncompromised Scripture
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.96rem', lineHeight: '1.65' }}>
-                0% hallucination guarantees and strict biblical integrity. Our AI semantic search vector engines map exclusively to verified public-domain Bible texts without inventing custom theology.
+                Rooted in faithful, unaltered Bible translations so every reflection, highlight, and study note stays anchored in God’s Word.
               </p>
             </div>
 
@@ -309,8 +309,8 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
                 width: '56px',
                 height: '56px',
                 borderRadius: '16px',
-                background: 'var(--primary-subtle)',
-                color: 'var(--primary)',
+                background: 'var(--secondary-subtle)',
+                color: 'var(--secondary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -322,7 +322,7 @@ export default function AboutPage({ navigateTo, onOpenDownload }) {
                 Accessibility First
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.96rem', lineHeight: '1.65' }}>
-                Keeping God’s Word 100% offline-ready, $0 cost, and completely ad-free for everyone everywhere—ensuring believers in remote areas with zero internet still access complete scriptures.
+                Keeping God’s Word offline-ready and freely accessible for everyone everywhere—so believers even in remote areas can read complete Scriptures anytime.
               </p>
             </div>
 

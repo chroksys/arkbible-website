@@ -15,7 +15,7 @@ export default function ProductPage({ onOpenDownload }) {
   const screens = [
     { id: 'home', label: 'Home Feed', image: '/images/app screenshots/home.jpg', desc: 'Daily devotional & morning affirmation space' },
     { id: 'reader', label: 'Bible Reader', image: '/images/app screenshots/reader.jpg', desc: '100% offline clean scripture reading' },
-    { id: 'reflect', label: 'Reflect & AI Context', image: '/images/app screenshots/reflect.jpg', desc: 'Help Me Understand 3-part breakdown' },
+    { id: 'reflect', label: 'Reflect & Study', image: '/images/app screenshots/reflect.jpg', desc: 'Guided 3-part verse breakdown' },
     { id: 'journal', label: 'Prayer Journal', image: '/images/app screenshots/journal.jpg', desc: 'Private prayer requests & answered milestones' }
   ];
 
@@ -60,8 +60,8 @@ export default function ProductPage({ onOpenDownload }) {
   const [vectorResult, setVectorResult] = useState({
     verse: 'Philippians 4:6-7',
     text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
-    intro: 'When anxiety or uncertainty weighs on your soul, God invites you to exchange worry for thanksgiving prayer. His peace acts as a protective guard over your heart.',
-    confidence: '99.4% Vector RAG Match (0% Hallucination)'
+    intro: 'When anxiety or uncertainty weighs on your soul, God invites you to exchange worry for thankful prayer. His peace acts as a protective guard over your heart.',
+    confidence: 'Verse-Grounded Reflection'
   });
 
   const emotionPresets = [
@@ -237,13 +237,13 @@ export default function ProductPage({ onOpenDownload }) {
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
             <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
-              <Zap size={16} /> Live Web Sandbox Engine
+              <Zap size={16} /> Interactive Verse Finder
             </div>
             <h2 className="heading-lg">
-              "How Are You Feeling?" Semantic Verse Search
+              "How Are You Feeling?" Scripture Reflection
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '0.4rem' }}>
-              Test the app's Supabase pgvector RAG scripture-matching engine live on this site. 0% AI hallucination guaranteed.
+              Share what is on your heart and discover comforting, relevant Bible passages for your season.
             </p>
           </div>
 
@@ -265,7 +265,7 @@ export default function ProductPage({ onOpenDownload }) {
                 className="btn btn-primary"
                 onClick={() => handleVectorSearch()}
               >
-                Match Scripture Vector
+                Find Comforting Verse
               </button>
             </div>
 
@@ -312,7 +312,7 @@ export default function ProductPage({ onOpenDownload }) {
                   "{vectorResult.text}"
                 </p>
                 <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '0.8rem', fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                  <strong style={{ color: 'var(--primary-dark)' }}>AI Pastoral Intro:</strong> {vectorResult.intro}
+                  <strong style={{ color: 'var(--primary-dark)' }}>Pastoral Reflection:</strong> {vectorResult.intro}
                 </div>
               </div>
             )}
@@ -349,21 +349,21 @@ export default function ProductPage({ onOpenDownload }) {
             gap: '2.5rem'
           }}>
 
-            {/* Feature 1: AI Morning Affirmation */}
+            {/* Feature 1: Daily Morning Affirmation */}
             <div className="light-card" style={{
               padding: '2.2rem',
               borderRadius: '22px',
-              background: 'rgba(255, 255, 255, 0.95)',
+              background: 'rgba(255, 255, 255, 0.96)',
               backdropFilter: 'blur(14px)',
-              boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
+              boxShadow: '0 12px 35px rgba(0,0,0,0.16)',
               border: '1px solid rgba(255, 255, 255, 0.45)'
             }}>
-              <div className="teal-badge" style={{ marginBottom: '1rem' }}>Feature 01 (NEW)</div>
+              <div className="gold-badge" style={{ marginBottom: '1rem' }}>Feature 01</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-                AI Morning Affirmations & Encouragement
+                Daily Morning Affirmations & Encouragement
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', marginBottom: '1.2rem', lineHeight: '1.65' }}>
-                Automatically generates a personalized, scripture-anchored word of affirmation every morning to start the day grounded in grace.
+                Receive a fresh, scripture-anchored word of encouragement every morning to start your day grounded in grace.
               </p>
               <div style={{ background: 'var(--bg-parchment)', padding: '1.2rem', borderRadius: '14px', border: '1px solid var(--border-light)', marginBottom: '1rem' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#3A6B68' }}>
@@ -463,7 +463,7 @@ export default function ProductPage({ onOpenDownload }) {
             }}>
               <div className="teal-badge" style={{ marginBottom: '1rem' }}>Feature 04</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-                "Help Me Understand" AI Context Engine
+                "Help Me Understand" Study Guide
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', marginBottom: '1rem', lineHeight: '1.65' }}>
                 One-tap 3-part breakdown for any Bible verse: Historical context, Plain-language theology, and Practical application.
@@ -510,18 +510,18 @@ export default function ProductPage({ onOpenDownload }) {
               </div>
             </div>
 
-            {/* Feature 5: AI Church & Sermon Note Structurer */}
+            {/* Feature 5: Church & Sermon Note Organizer */}
             <div className="light-card" style={{
               padding: '2.2rem',
               borderRadius: '22px',
-              background: 'rgba(255, 255, 255, 0.95)',
+              background: 'rgba(255, 255, 255, 0.96)',
               backdropFilter: 'blur(14px)',
-              boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
+              boxShadow: '0 12px 35px rgba(0,0,0,0.16)',
               border: '1px solid rgba(255, 255, 255, 0.45)'
             }}>
-              <div className="teal-badge" style={{ marginBottom: '1rem' }}>Feature 05</div>
+              <div className="gold-badge" style={{ marginBottom: '1rem' }}>Feature 05</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-                AI Church & Sermon Note Structurer
+                Church & Sermon Note Organizer
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', marginBottom: '1rem', lineHeight: '1.65' }}>
                 Formats raw service notes into clean summaries (Title, Scripture, Core Message, Action Items) with 1-tap export.
@@ -722,10 +722,10 @@ export default function ProductPage({ onOpenDownload }) {
       }}>
         <div className="container" style={{ maxWidth: '850px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <div className="hero-badge" style={{ marginBottom: '1.2rem', display: 'inline-flex' }}>
-            <ShieldCheck size={16} /> Privacy & Integrity Guarantee
+            <ShieldCheck size={16} /> Built with Care & Respect
           </div>
           <h2 className="heading-lg" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            100% Ad-Free, $0 Subscriptions, Zero Tracking
+            Free for Every Believer, Private by Design
           </h2>
           <p style={{
             color: 'rgba(255, 255, 255, 0.92)',
@@ -734,7 +734,7 @@ export default function ProductPage({ onOpenDownload }) {
             marginBottom: '2.5rem',
             fontWeight: '500'
           }}>
-            Arkbible collects no sensitive personal telemetry, serves zero third-party ads, and requires no hidden paid subscriptions. Your quiet time with God remains sacred.
+            ArkBible is built as a peaceful home for Scripture, prayer, and Christian fellowship. Your quiet time with God stays personal, respectful, and always accessible.
           </p>
 
           <button className="btn btn-primary" onClick={onOpenDownload} style={{ padding: '0.9rem 2.2rem', fontSize: '1.05rem', boxShadow: '0 6px 20px rgba(58, 107, 104, 0.4)' }}>
