@@ -1,296 +1,269 @@
 import React, { useState } from 'react';
-import confetti from 'canvas-confetti';
-import {
-  Church, CheckCircle2, Building, Zap, HeartHandshake
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import Reveal from '../components/Reveal';
 
 export default function PartnerPage({ navigateTo, onSubmitToast }) {
   const { t } = useLanguage();
-  const [churchForm, setChurchForm] = useState({
-    name: '',
-    churchName: '',
-    role: '',
+  const [formData, setFormData] = useState({
+    fullName: '',
+    organization: '',
     email: '',
-    size: '100-500 members',
-    message: ''
+    role: 'Senior Pastor',
+    message: '',
   });
-  const [isChurchSubmitting, setIsChurchSubmitting] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChurchSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsChurchSubmitting(true);
+    setIsSubmitting(true);
     setTimeout(() => {
-      setIsChurchSubmitting(false);
-      setFormSubmitted(true);
-      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      setIsSubmitting(false);
       if (onSubmitToast) {
-        onSubmitToast("Thank you! Your church partnership packet request has been submitted to our ministry outreach team.");
+        onSubmitToast(t('partner.successMsg'));
       }
-    }, 750);
+      setFormData({ fullName: '', organization: '', email: '', role: 'Senior Pastor', message: '' });
+    }, 650);
   };
 
-  const partnerPillars = [
+  const pillars = [
     {
-      title: "Co-Branded Sanctuary Kits",
-      desc: "Receive customized digital welcome kits, sermon discussion guides, and scripture reading plans tailored for your congregation.",
-      icon: <Building size={24} color="#FFFFFF" />,
-      color: "#3A6B68"
+      num: '01',
+      title: t('partner.ben1Title'),
+      desc: t('partner.ben1Desc'),
+      surface: '#F7F9F8',
+      accent: 'var(--primary)',
     },
     {
-      title: "Youth Fellowship Integration",
-      desc: "Equip your youth ministry with offline digital Bibles, guided verse study, and small-group reflection tools.",
-      icon: <Zap size={24} color="#FFFFFF" />,
-      color: "#2E7D32"
+      num: '02',
+      title: 'Small Groups & Youth Fellowship',
+      desc: 'Equip small groups and youth ministries with offline Bibles, sermon note organization, and shared Scripture reflections.',
+      surface: '#FDF8F0',
+      accent: 'var(--secondary-dark)',
     },
     {
-      title: "Pastoral Intercessory Network",
-      desc: "Connect your prayer team to a secure, 4-layer moderated prayer channel to share and intercede for global prayer needs.",
-      icon: <HeartHandshake size={24} color="#FFFFFF" />,
-      color: "#D84315"
-    }
+      num: '03',
+      title: t('partner.ben2Title'),
+      desc: t('partner.ben2Desc'),
+      surface: '#F7F9F8',
+      accent: 'var(--primary)',
+    },
   ];
 
   return (
-    <div>
-      {/* HERO BANNER */}
+    <div style={{ background: '#FFFFFF' }}>
+      {/* 1. FULL-BLEED PHOTOGRAPHIC HERO (YOUVERSION CHURCHES STYLE) */}
       <section style={{
         position: 'relative',
-        padding: '7.5rem 0 5rem 0',
-        background: `linear-gradient(to bottom, rgba(14, 23, 22, 0.78), rgba(14, 23, 22, 0.95)), url('/images/partnerbackground.jpg')`,
+        minHeight: '66vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundImage: `linear-gradient(180deg, rgba(16, 36, 35, 0.62) 0%, rgba(16, 36, 35, 0.8) 100%), url('/images/partnerbackground.jpg')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: '#FFFFFF'
+        backgroundPosition: 'center center',
+        color: '#FFFFFF',
+        padding: '6rem 0',
       }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '850px' }}>
-          <div className="hero-badge" style={{ marginBottom: '1.2rem', display: 'inline-flex' }}>
-            <Church size={16} /> {t('partner.badge')}
+        <div className="container">
+          <div style={{ maxWidth: '760px' }}>
+            <p className="animate-hero" style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: '#F4B956',
+              marginBottom: '1.1rem',
+            }}>
+              {t('partner.badge')}
+            </p>
+            <h1 className="animate-hero-delay-1" style={{
+              fontSize: 'clamp(2.5rem, 5.5vw, 4.3rem)',
+              fontWeight: 800,
+              lineHeight: 1.08,
+              letterSpacing: '-0.035em',
+              color: '#FFFFFF',
+              marginBottom: '1.4rem',
+            }}>
+              {t('partner.title')}
+            </h1>
+            <p className="animate-hero-delay-2" style={{
+              fontSize: 'clamp(1.05rem, 1.7vw, 1.24rem)',
+              lineHeight: 1.7,
+              color: 'rgba(255, 255, 255, 0.88)',
+              maxWidth: '600px',
+              marginBottom: '2.2rem',
+            }}>
+              {t('partner.subtitle')}
+            </p>
+            <a href="#partner-form" className="btn btn-secondary">
+              {t('buttons.becomePartner')} <ArrowRight size={17} />
+            </a>
           </div>
-          <h1 className="heading-xl" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-            {t('partner.title')}
-          </h1>
-          <p style={{
-            fontSize: '1.18rem',
-            color: 'rgba(255, 255, 255, 0.9)',
-            lineHeight: '1.75',
-            marginBottom: '2rem'
-          }}>
-            {t('partner.subtitle')}
-          </p>
         </div>
       </section>
 
-      {/* SECTION 1: CHURCH PARTNERSHIP PILLARS */}
-      <section style={{ padding: '6rem 0', background: 'var(--bg-white)' }}>
+      {/* 2. HOW WE SERVE CHURCHES */}
+      <section style={{ padding: '6.5rem 0', background: '#FFFFFF' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3.8rem' }}>
-            <div className="teal-badge" style={{ marginBottom: '0.8rem' }}>
-              Pastoral Alliances
+          <Reveal>
+            <div style={{ maxWidth: '700px', marginBottom: '3.5rem' }}>
+              <p style={{ fontSize: '0.76rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.7rem' }}>
+                For Churches & Ministries
+              </p>
+              <h2 className="heading-lg" style={{ marginBottom: '0.8rem' }}>
+                Built to Strengthen Your Local Church
+              </h2>
+              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
+                From Sunday sermon notes to daily community reading, ArkBible helps your congregation stay engaged with Scripture Monday through Saturday.
+              </p>
             </div>
-            <h2 className="heading-lg">
-              Empowering Your Local Congregation
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '0.4rem' }}>
-              Custom digital resources and pastoral tools designed for church leadership.
-            </p>
-          </div>
+          </Reveal>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+            gap: '2rem',
           }}>
-            {partnerPillars.map((pillar, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: 'var(--bg-teal-light)',
-                  border: `1.5px solid ${pillar.color}33`,
-                  borderRadius: '24px',
-                  padding: '2.2rem 1.8rem',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '14px',
-                    background: pillar.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1.2rem'
-                  }}>
-                    {pillar.icon}
+            {pillars.map((p, idx) => (
+              <Reveal key={p.num} delay={idx * 90}>
+                <div style={{
+                  background: p.surface,
+                  borderRadius: '28px',
+                  padding: '2.5rem',
+                  height: '100%',
+                  border: '1px solid var(--border-light)',
+                }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 800, color: p.accent, letterSpacing: '0.1em', marginBottom: '0.9rem' }}>
+                    {p.num}
                   </div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-                    {pillar.title}
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '0.85rem', lineHeight: 1.25 }}>
+                    {p.title}
                   </h3>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.65' }}>
-                    {pillar.desc}
+                  <p style={{ fontSize: '0.97rem', color: 'var(--text-dark-soft)', lineHeight: 1.75 }}>
+                    {p.desc}
                   </p>
                 </div>
-                <div style={{ marginTop: '1.6rem' }}>
-                  <div style={{ height: '4px', background: pillar.color, borderRadius: '9999px' }} />
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: CHURCH PARTNERSHIP FORM (BACKGROUND: good2.webp) */}
-      <section style={{
-        position: 'relative',
-        padding: '7rem 0',
-        background: `linear-gradient(to bottom, rgba(14, 23, 22, 0.75), rgba(14, 23, 22, 0.92)), url('/images/good2.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        color: '#FFFFFF',
-        overflow: 'hidden'
-      }}>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      {/* 3. SPLIT PARTNER FORM SECTION */}
+      <section id="partner-form" style={{ padding: '6rem 0', background: 'var(--bg-light-soft)' }}>
+        <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '4rem',
-            alignItems: 'center'
+            alignItems: 'start',
           }}>
-            <div>
-              <div className="hero-badge" style={{ marginBottom: '1.2rem', display: 'inline-flex' }}>
-                <Church size={16} /> Church & Pastor Partnerships
+            <Reveal>
+              <div>
+                <p style={{ fontSize: '0.76rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--secondary-dark)', marginBottom: '0.8rem' }}>
+                  Start the Conversation
+                </p>
+                <h2 className="heading-lg" style={{ marginBottom: '1.2rem' }}>
+                  Let’s Serve Your Community Together
+                </h2>
+                <p style={{ fontSize: '1.05rem', color: 'var(--text-dark-soft)', lineHeight: 1.75, marginBottom: '2rem' }}>
+                  Whether you lead a local church, campus fellowship, or missions organization, our team would love to connect and explore how ArkBible can support your people.
+                </p>
+                <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                  <img
+                    src="/images/part2.jpg"
+                    alt="Church leaders in fellowship"
+                    style={{ width: '100%', height: '260px', objectFit: 'cover' }}
+                  />
+                </div>
               </div>
-              <h2 className="heading-lg" style={{ color: '#FFFFFF', marginBottom: '1.2rem' }}>
-                Dedicated Support for Church Leaders
-              </h2>
-              <p style={{ color: 'rgba(255, 255, 255, 0.92)', fontSize: '1.1rem', lineHeight: '1.75', marginBottom: '2rem', fontWeight: '500' }}>
-                Arkbible works alongside pastoral teams to provide free offline scripture tools, intercessory prayer channels, and custom sermon note templates.
-              </p>
+            </Reveal>
 
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.2rem', fontSize: '1rem', color: '#FFFFFF' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                  <CheckCircle2 size={22} color="#A8E0DD" />
-                  Custom church sermon note templates & youth discussion guides
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                  <CheckCircle2 size={22} color="#A8E0DD" />
-                  Co-branded digital sanctuary kits for new believers
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                  <CheckCircle2 size={22} color="#A8E0DD" />
-                  Dedicated prayer request channels for pastoral staff
-                </li>
-              </ul>
-            </div>
+            <Reveal delay={120}>
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  background: '#FFFFFF',
+                  borderRadius: '28px',
+                  padding: '2.5rem',
+                  border: '1px solid var(--border-light)',
+                  boxShadow: 'var(--shadow-sm)',
+                }}
+              >
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '1.6rem' }}>
+                  {t('partner.formTitle')}
+                </h3>
 
-            {/* Church Partnership Form */}
-            <div className="light-card" style={{
-              padding: '2.5rem',
-              borderRadius: '24px',
-              background: 'rgba(255, 255, 255, 0.84)',
-              backdropFilter: 'blur(16px)',
-              border: '1.5px solid rgba(255, 255, 255, 0.4)',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.3)'
-            }}>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: 'var(--primary-dark)', marginBottom: '1.2rem' }}>
-                Request Church Partnership Packet
-              </h3>
+                <div className="form-group">
+                  <label>{t('partner.fullName')}</label>
+                  <input
+                    type="text"
+                    required
+                    className="form-input"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="Pastor John Doe"
+                  />
+                </div>
 
-              {!formSubmitted ? (
-                <form onSubmit={handleChurchSubmit}>
+                <div className="form-group">
+                  <label>{t('partner.organization')}</label>
+                  <input
+                    type="text"
+                    required
+                    className="form-input"
+                    value={formData.organization}
+                    onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                    placeholder="Grace Community Church"
+                  />
+                </div>
+
+                <div className="form-row-2col">
                   <div className="form-group">
-                    <label>Your Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Pastor John Doe"
-                      className="form-input"
-                      value={churchForm.name}
-                      onChange={(e) => setChurchForm({ ...churchForm, name: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-row-2col">
-                    <div className="form-group">
-                      <label>Church Name</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Grace Community Church"
-                        className="form-input"
-                        value={churchForm.churchName}
-                        onChange={(e) => setChurchForm({ ...churchForm, churchName: e.target.value })}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label>Your Role</label>
-                      <input
-                        type="text"
-                        placeholder="Lead Pastor / Youth Director"
-                        className="form-input"
-                        value={churchForm.role}
-                        onChange={(e) => setChurchForm({ ...churchForm, role: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Email Address</label>
+                    <label>{t('partner.email')}</label>
                     <input
                       type="email"
                       required
-                      placeholder="pastor@church.org"
                       className="form-input"
-                      value={churchForm.email}
-                      onChange={(e) => setChurchForm({ ...churchForm, email: e.target.value })}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="pastor@church.org"
                     />
                   </div>
-
                   <div className="form-group">
-                    <label>Message / Specific Needs</label>
-                    <textarea
-                      rows={3}
-                      placeholder="Tell us how we can best serve your congregation..."
-                      className="form-textarea"
-                      value={churchForm.message}
-                      onChange={(e) => setChurchForm({ ...churchForm, message: e.target.value })}
+                    <label>{t('partner.role')}</label>
+                    <input
+                      type="text"
+                      required
+                      className="form-input"
+                      value={formData.role}
+                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={isChurchSubmitting}
-                    className="btn btn-primary"
-                    style={{ width: '100%', marginTop: '0.5rem' }}
-                  >
-                    {isChurchSubmitting ? 'Sending Request...' : 'Send Partnership Request'}
-                  </button>
-                </form>
-              ) : (
-                <div style={{ textAlign: 'center', padding: '1.5rem', background: '#E6F4EA', borderRadius: '16px', border: '1px solid #34A853' }}>
-                  <CheckCircle2 size={40} color="#137333" style={{ margin: '0 auto 0.8rem auto' }} />
-                  <h4 style={{ fontSize: '1.15rem', color: '#137333', fontWeight: '800' }}>
-                    Request Sent, {churchForm.name || 'Pastor'}!
-                  </h4>
-                  <p style={{ fontSize: '0.88rem', color: '#137333', marginTop: '0.4rem', lineHeight: '1.5' }}>
-                    Our church outreach team will email the Partnership Packet to <strong>{churchForm.email}</strong> within 24 hours.
-                  </p>
-                  <button
-                    className="btn btn-outline-teal"
-                    style={{ marginTop: '1rem', padding: '0.5rem 1rem', fontSize: '0.85rem' }}
-                    onClick={() => setFormSubmitted(false)}
-                  >
-                    Submit Another Request
-                  </button>
                 </div>
-              )}
-            </div>
+
+                <div className="form-group">
+                  <label>{t('partner.message')}</label>
+                  <textarea
+                    rows={4}
+                    required
+                    className="form-textarea"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us about your church or ministry..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn btn-primary"
+                  style={{ width: '100%', padding: '1rem', fontSize: '0.98rem' }}
+                >
+                  {isSubmitting ? t('buttons.sending') : t('partner.submitBtn')}
+                </button>
+              </form>
+            </Reveal>
           </div>
         </div>
       </section>
