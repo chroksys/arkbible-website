@@ -150,6 +150,28 @@ export default function App() {
             <AuthHandoffPage mode="reset-password" navigateTo={navigateTo} />
           )}
 
+          {activeRoute === '/delete-account' && (
+            <section style={{ padding: '5rem 0', background: 'var(--bg-light-soft)' }}>
+              <div className="container" style={{ maxWidth: '720px' }}>
+                <div className="light-card" style={{ padding: '2.5rem' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--secondary)' }}>
+                    Account & Data Deletion
+                  </span>
+                  <h1 className="heading-lg" style={{ marginTop: '0.5rem', marginBottom: '1.2rem' }}>
+                    Delete Your ArkBible Account
+                  </h1>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', color: 'var(--text-dark-soft)', lineHeight: 1.75 }}>
+                    <p>You have full control over your ArkBible account and personal data at all times.</p>
+                    <h3 style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>Option 1 — Instant Deletion Inside the App</h3>
+                    <p>Open <strong>ArkBible</strong> → tap the <strong>Profile / Settings</strong> tab → scroll to the bottom → tap <strong>Delete Account</strong>. Your account, highlights, notes, saved sermons, and testimonies are permanently removed immediately.</p>
+                    <h3 style={{ color: 'var(--primary-dark)', fontWeight: 700 }}>Option 2 — Request Deletion by Email</h3>
+                    <p>If you no longer have access to the app, email <a href="mailto:info@arkbible.app?subject=ArkBible%20Account%20Deletion%20Request" style={{ color: 'var(--primary)', fontWeight: 700 }}>info@arkbible.app</a> from the email address linked to your account. We will permanently delete your account and all associated data within 48 hours.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
           {activeRoute === '/privacy' && (
             <section style={{ padding: '5rem 0', background: 'var(--bg-light-soft)' }}>
               <div className="container" style={{ maxWidth: '760px' }}>
