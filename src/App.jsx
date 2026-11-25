@@ -13,9 +13,15 @@ import PartnerPage from './pages/PartnerPage';
 import DonatePage from './pages/DonatePage';
 import ContactPage from './pages/ContactPage';
 import VolunteerPage from './pages/VolunteerPage';
+import AuthHandoffPage from './pages/AuthHandoffPage';
 
 export default function App() {
-  const [activeRoute, setActiveRoute] = useState(window.location.pathname || '/');
+  const normalizePath = (p) => {
+    if (!p || p === '/') return '/';
+    return p.replace(/\/+$/, '') || '/';
+  };
+
+  const [activeRoute, setActiveRoute] = useState(normalizePath(window.location.pathname));
   const [isDownloadOpen, setIsDownloadOpen] = useState(false);
   const [isSubmitStoryOpen, setIsSubmitStoryOpen] = useState(false);
   const [infoModalType, setInfoModalType] = useState(null); // 'privacy' | 'terms' | null
@@ -25,15 +31,16 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      setActiveRoute(window.location.pathname || '/');
+      setActiveRoute(normalizePath(window.location.pathname));
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigateTo = (path) => {
-    setActiveRoute(path);
-    window.history.pushState({}, '', path);
+    const clean = normalizePath(path);
+    setActiveRoute(clean);
+    window.history.pushState({}, '', clean);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -133,6 +140,14 @@ export default function App() {
             <ContactPage
               onSubmitToast={showToast}
             />
+          )}
+
+          {activeRoute === '/auth/callback' && (
+            <AuthHandoffPage mode="callback" navigateTo={navigateTo} />
+          )}
+
+          {activeRoute === '/auth/reset-password' && (
+            <AuthHandoffPage mode="reset-password" navigateTo={navigateTo} />
           )}
 
           {activeRoute === '/privacy' && (
